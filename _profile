@@ -1,0 +1,30 @@
+alias cp="cp -ip"
+alias gia="git add"
+alias giA="git add ."
+alias gic="git commit"
+alias gim="git commit -m"
+alias gip="git pull"
+alias giP="git push origin master"
+alias gis="git status"
+alias grep="grep --color=auto"
+alias ls="ls --color=auto"
+alias lsl="ls | less"
+alias mv="mv -i"
+alias open="xdg-open"
+alias q="exit"
+alias rm="rm -i"
+
+fzd () { cd "$(fuzzy_find_directory $@)"; }
+lsg () { ls -a | grep -i $(echo "$@" | sed s/\ /.*/); }
+mkcd () { mkdir -p "$*"; cd "$*"; }
+set -o emacs
+PS1='$(whoami)@$(hostname):$(pwd)
+》'
+
+export EDITOR=vim
+export PAGER=less
+export VISUAL=vim
+export GOPATH=$HOME/projects/gocode
+export PATH="$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+source /usr/share/doc/fzf/examples/key-bindings.bash

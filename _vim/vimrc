@@ -1,0 +1,43 @@
+set encoding=utf-8
+filetype plugin indent on
+set modelines=0
+
+set viminfo^=!
+set t_Co=16
+syntax on
+colorscheme eldar
+set cursorline
+set showcmd
+set ruler
+set laststatus=2
+set number
+set display+=lastline
+set linebreak
+
+set wildmode=longest,list,full
+set wildmenu
+
+set autoread
+set autowriteall
+set clipboard^=unnamed,unnamedplus
+
+set shiftround
+set smarttab
+set expandtab
+set autoindent
+set breakindent
+set cpo+=J
+
+let mapleader=","
+let maplocalleader=","
+set backspace=indent,eol,start
+nnoremap Q <nop>
+nnoremap <Leader><Leader> :<Up><CR>
+nnoremap <ESC><ESC> :nohlsearch<CR><C-l>
+inoremap jk <ESC>`^<C-l>
+
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
