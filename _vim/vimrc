@@ -1,32 +1,23 @@
-set encoding=utf-8
+set encoding=utf-8 modelines=0 t_Co=16 
 filetype plugin indent on
-set modelines=0
 
-set viminfo^=!
-set t_Co=16
+set viminfo^=! 
 syntax on
 colorscheme eldar
-set cursorline
-set showcmd
-set ruler
-set laststatus=2
-set number
-set display+=lastline
-set linebreak
+set cursorline number 
+set showcmd ruler laststatus=2 display+=lastline 
 
-set wildmode=longest,list,full
-set wildmenu
+set wildmode=longest,list,full wildmenu
 
-set autoread
-set autowriteall
+set autoread autowriteall
 set clipboard^=unnamed,unnamedplus
 
-set shiftround
-set smarttab
-set expandtab
-set autoindent
-set breakindent
+set shiftround smarttab expandtab
+set linebreak autoindent breakindent
 set cpo+=J
+
+set ignorecase smartcase
+set incsearch showmatch hlsearch
 
 let mapleader=","
 let maplocalleader=","
@@ -35,9 +26,3 @@ nnoremap Q <nop>
 nnoremap <Leader><Leader> :<Up><CR>
 nnoremap <ESC><ESC> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^<C-l>
-
-set ignorecase
-set smartcase
-set incsearch
-set showmatch
-set hlsearch

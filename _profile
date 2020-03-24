@@ -13,14 +13,13 @@ alias mv="mv -i"
 alias open="xdg-open"
 alias q="exit"
 alias rm="rm -i"
-
+alias tmux="tmux attach || tmux"
 fzd () { cd "$(fuzzy_find_directory $@)"; }
 lsg () { ls -a | grep -i $(echo "$@" | sed s/\ /.*/); }
 mkcd () { mkdir -p "$*"; cd "$*"; }
-set -o emacs
 PS1='$(whoami)@$(hostname):$(pwd)
 》'
-
+set -o emacs
 export EDITOR=vim
 export PAGER=less
 export VISUAL=vim
