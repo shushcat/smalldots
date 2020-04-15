@@ -11,4 +11,4 @@ function! VimuxSlime()
 endfunction
 
 vmap <Leader>vs "vy :call VimuxSlime()<CR>
-nmap <Leader>vs vip<Leader>vs<CR>
+nmap <Leader>vs m`vip<Leader>vs<CR>``
