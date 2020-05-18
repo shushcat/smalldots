@@ -2,10 +2,6 @@
 " Language:     Minimal Markdown
 " Author:       J. O. Brickley
 
-if exists("g:minimd_plugin_loaded")
-    finish
-endif
-
 " Folding:
 if !exists("g:minimd_folding_disabled")
   setlocal foldexpr=minimd#MarkdownLevel()
@@ -14,6 +10,10 @@ if !exists("g:minimd_folding_disabled")
   setlocal foldlevel=6
   setlocal foldcolumn=0
   set foldopen-=search
+endif
+
+if exists("g:minimd_plugin_loaded")
+    finish
 endif
 
 nmap <silent> <Space> za
@@ -42,7 +42,6 @@ setlocal formatoptions-=2
 setlocal formatoptions+=n
 setlocal nocindent
 setlocal number
-setlocal numberwidth=10
 setlocal shiftwidth=4
 
 " Headers:
@@ -59,32 +58,9 @@ endfunction
 nnoremap <silent> = :call minimd#PromoteHeader()<CR>
 nnoremap <silent> - :call minimd#DemoteHeader()<CR>
 
-" Highlights:
-highlight Folded ctermbg=black ctermfg=darkgrey
-highlight FoldColumn ctermbg=black ctermfg=darkgrey
-highlight LineNr ctermfg=darkgrey
-highlight NonText ctermfg=black
-highlight Folded guibg=black guifg=darkgrey
-highlight FoldColumn guibg=black guifg=darkgrey
-highlight LineNr guifg=darkgrey
-highlight NonText guifg=black
-
 " Motion:
 nmap j gj
 nmap k gk
-
-" Pandoc Export:
-if !exists("g:pandoc_options")
-    let g:pandoc_options = ""
-endif
-if !exists("g:pandoc_options_html")
-    let g:pandoc_options_html = ""
-endif
-if !exists("g:pandoc_options_latex")
-    let g:pandoc_options_latex = ""
-endif
-:nmap <LocalLeader>ch :<C-\>e'execute '.string(getcmdline()).'."!pandoc " g:pandoc_options g:pandoc_options_html "-f markdown -t html" "\"%\"" "> ./out.html"'<CR><CR>
-:nmap <silent> <LocalLeader>cp :<C-\>e'execute '.string(getcmdline()).'."!pandoc " g:pandoc_options g:pandoc_options_latex "-o ./out.pdf " "\"%\""'<CR><CR>
 
 " Tasks:
 nmap <silent><buffer> <CR> :call minimd#TaskToggle()<CR>
