@@ -11,6 +11,7 @@ alias grep="grep --color=auto"
 alias ls="ls --color=auto"
 alias lsl="ls | less"
 alias mv="mv -i"
+alias nv="nvim"
 alias open="xdg-open"
 alias q="exit"
 alias rm="rm -i"
@@ -24,7 +25,5 @@ set -o emacs
 export EDITOR=vim
 export PAGER=less
 export VISUAL=vim
-export GOPATH=$HOME/projects/gocode
-export PATH="$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-source /usr/share/doc/fzf/examples/key-bindings.bash
+export GOPATH=$HOME/proj/gocode
+export PATH="$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$PATH"
