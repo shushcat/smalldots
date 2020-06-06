@@ -21,7 +21,7 @@ setlocal wrapmargin=0
 setlocal textwidth=0
 setlocal nolist
 setlocal linebreak
-set breakat=\ ^I
+setlocal breakat&vim
 setlocal display=lastline
 setlocal autoindent
 setlocal nosmartindent
@@ -48,8 +48,6 @@ nmap k gk
 " Tasks:
 nmap <silent><buffer> <CR> :call minimd#TaskToggle()<CR>
 vmap <silent><buffer> <CR> :call minimd#TaskToggle()<CR>
-" Highlight Unfinished Tasks:
-nnoremap <silent> <Leader>t %/^\s*- \[ \].*$<CR>
 
 " Word Count:
 let b:word_count = minimd#UpdateWordCount()
