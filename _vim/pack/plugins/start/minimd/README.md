@@ -24,5 +24,5 @@ If you would like to export your Markdown file to another format, [Pandoc](https
 
 ## To Do
 
-- [ ] Non-greedy link highlights for multiple links on a single line
 - [ ] Make sure settings, including those for the status line, don't leak
+- [ ] Conditionally trigger `syntax sync fromstart`
