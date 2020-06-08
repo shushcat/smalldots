@@ -13,13 +13,6 @@ endif
 nmap <silent> <Space> :call minimd#ManualFold()<CR>
 
 " Formatting:
-" tcqj is default; tpope says tcqln -ro
-" t wrap with textwidth
-" c insert comment leader when wrapping
-" q format with gq
-" l don't break long lines
-" j remove comment leaders when join
-" n for numbered lists
 setlocal formatoptions+=1tcqljn 
 setlocal formatoptions-=ro
 setlocal formatlistpat="^\s*\(-\|*\|+\|\d\+\.\)\s"
