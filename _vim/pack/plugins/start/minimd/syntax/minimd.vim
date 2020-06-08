@@ -54,9 +54,11 @@ syntax region titleBlock start=/\%1l%/ end=/\(^$\|^\(%\|\s\)\@!\)/
 highlight default link titleBlock Header
 
 " Links:
-syntax match imageLink /!\[.*\](.*)/
-highlight default link imageLink PreProc
-syntax match inlineLink /\[.*\](.*)/
+" syntax match imageLink /!\[.*\](.*)/
+" syntax match imageLink /!\[.*\](.*)/
+" highlight default link imageLink PreProc
+" syntax match inlineLink /\[.*\](.*)/
+syntax region inlineLink start=/\[/ skip=/\[[^]]*\]/ end=/\]/
 highlight default link inlineLink PreProc
 
 " Math:
