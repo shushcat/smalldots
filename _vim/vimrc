@@ -23,8 +23,8 @@ let mapleader=","
 let maplocalleader=","
 set backspace=indent,eol,start
 nnoremap Q <nop>
-nnoremap <Leader><Leader> :<Up><CR>
-nmap <Leader>t i<C-R>=strftime("[%Y-%m-%d]-")<CR><Esc>
+nmap <Leader>. :cd %:p:h<CR>:pwd<CR>
+nmap <Leader>.. :cd ..<CR>:pwd<CR>
 nmap <Leader>w :w<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^<C-l>
