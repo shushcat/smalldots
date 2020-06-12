@@ -13,9 +13,16 @@ endif
 nmap <silent> <Space> :call minimd#ManualFold()<CR>
 
 " Formatting:
-setlocal formatoptions=1
-" TODO Recognize dash and plus lists as well.
-"setlocal formatlistpat="^\s*\d\+[\]:.)}\t ]\s*"
+" tcqj is default; tpope says tcqln -ro
+" t wrap with textwidth
+" c insert comment leader when wrapping
+" q format with gq
+" l don't break long lines
+" j remove comment leaders when join
+" n for numbered lists
+setlocal formatoptions+=1tcqljn 
+setlocal formatoptions-=ro
+setlocal formatlistpat="^\s*\(-\|*\|+\|\d\+\.\)\s"
 setlocal wrap
 setlocal wrapmargin=0
 setlocal textwidth=0
@@ -25,7 +32,8 @@ setlocal breakat&vim
 setlocal display=lastline
 setlocal autoindent
 setlocal nosmartindent
-setlocal comments=""
+setlocal comments=fb:*,fb:+,fb:-,n:>
+setlocal commentstring=<!--%s-->
 setlocal formatoptions-=c
 setlocal formatoptions-=r
 setlocal formatoptions-=o
