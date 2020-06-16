@@ -19,12 +19,13 @@ set cpo+=J
 set ignorecase smartcase
 set incsearch showmatch hlsearch
 
+set backspace=indent,eol,start
 let mapleader=","
 let maplocalleader=","
-set backspace=indent,eol,start
 nnoremap Q <nop>
 nmap <Leader>. :cd %:p:h<CR>:pwd<CR>
 nmap <Leader>.. :cd ..<CR>:pwd<CR>
 nmap <Leader>w :w<CR>
+nmap <Space> za
 nnoremap <ESC><ESC> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^<C-l>
