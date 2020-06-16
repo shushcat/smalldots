@@ -2,23 +2,24 @@
 " Language:     Minimal Markdown
 " Author:       J. O. Brickley
 
-if exists("g:minimd_plugin_loaded")
-    finish
+if exists("b:minimd_plugin_loaded")
+  finish
 endif
+let b:minimd_plugin_loaded = 1
 
 " Folding:
 setlocal foldmethod=manual
 setlocal foldopen-=search
 setlocal foldtext=minimd#FoldText()
 function! minimd#FoldText()
-        let line = getline(v:foldstart)
-        let folded_line_num = v:foldend - v:foldstart
-        let line_text = substitute(line, '\(.\{56\}.\{-\}\)\s.*', '\1', 'g')
-        let fillcharcount = 70 - len(line_text) - len(folded_line_num)
-        return line_text . repeat('.', fillcharcount) . ' (' . folded_line_num . ' Lines)'
+  let line = getline(v:foldstart)
+  let folded_line_num = v:foldend - v:foldstart
+  let line_text = substitute(line, '\(.\{56\}.\{-\}\)\s.*', '\1', 'g')
+  let fillcharcount = 70 - len(line_text) - len(folded_line_num)
+  return line_text . repeat('.', fillcharcount) . '(' . folded_line_num . ' Lines)'
 endfunction
 setlocal fillchars=fold:\ 
-nmap <silent> <Space> :call minimd#ManualFold()<CR>
+nmap <silent><buffer> <Space> :call minimd#ManualFold()<CR>
 
 " Formatting:
 setlocal formatoptions+=1tcqljn 
@@ -45,10 +46,10 @@ setlocal number
 setlocal shiftwidth=4
 
 " Headers:
-nmap <silent> <Tab> :call minimd#HeaderMotion('F')<CR>
-nmap <silent> <S-Tab> :call minimd#HeaderMotion('B')<CR>
-nnoremap <silent> = :call minimd#PromoteHeader()<CR>
-nnoremap <silent> - :call minimd#DemoteHeader()<CR>
+nmap <silent><buffer> <Tab> :call minimd#HeaderMotion('F')<CR>
+nmap <silent><buffer> <S-Tab> :call minimd#HeaderMotion('B')<CR>
+nnoremap <silent><buffer> = :call minimd#PromoteHeader()<CR>
+nnoremap <silent><buffer> - :call minimd#DemoteHeader()<CR>
 
 " Motion:
 nmap j gj
@@ -60,6 +61,4 @@ vmap <silent><buffer> <CR> :call minimd#TaskToggle()<CR>
 
 " Word Count:
 let b:word_count = minimd#UpdateWordCount()
-set statusline=%<%f\ wc:%{minimd#ReturnWordCount()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-let g:minimd_plugin_loaded = 1
+setlocal statusline=%<%f\ wc:%{minimd#ReturnWordCount()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P

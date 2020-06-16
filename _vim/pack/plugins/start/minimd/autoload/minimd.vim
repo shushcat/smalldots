@@ -8,63 +8,85 @@ function! minimd#ManualFold()
   if foldlevel(l:pos1[1]) != 0
     execute 'silent! normal! zd'
   else
-    let l:synID1 = synIDtrans(hlID("mdHeader"))
-    let l:synID2 = synIDtrans(synID(line("."), 1, 1))
-    if l:synID1 != l:synID2
+    let l:headID = synIDtrans(hlID("mdHeader"))
+    let l:currID = synIDtrans(synID(line("."), 1, 1))
+    if l:headID != l:currID
       call minimd#HeaderMotion('B')
       let l:pos1 = getpos(".")
     endif
+    let l:pos1lvl = minimd#HeaderLevel()
     call minimd#HeaderMotion('F')
     let l:pos2 = getpos(".")
-    if l:pos2[1] == line('$')
-      execute l:pos1[1] ',' l:pos2[1] 'fold'
-    else
-      execute l:pos1[1] ',' l:pos2[1]-1 'fold'
-    endif
+    let l:pos2lvl = minimd#HeaderLevel()
+    while l:pos1lvl < l:pos2lvl
+      call minimd#HeaderMotion('F')
+      let l:pos3 = getpos(".")
+      if l:pos2[1] == l:pos3[1]
+        let l:pos2[1] = l:pos2[1] + 1
+        break
+      endif
+      call minimd#MakeFold(l:pos2[1], l:pos3[1])
+      let l:pos2 = getpos(".")
+      let l:pos2lvl = minimd#HeaderLevel()
+    endwhile
+    call minimd#MakeFold(l:pos1[1], l:pos2[1])
     call setpos('.', l:pos1)
+  endif
+endfunction
+
+function! minimd#HeaderLevel()
+  let l:currLine = getline(".")
+  return matchend(l:currLine, '^#*')
+endfunction
+
+function! minimd#MakeFold(l1, l2)
+  if a:l2 == line('$')
+    execute a:l1 ',' a:l2 'fold'
+  else
+    execute a:l1 ',' a:l2 - 1 'fold'
   endif
 endfunction
 
 " Task Toggling:
 function! minimd#TaskToggle()
-    let b:line = getline(".")
-    let b:linenum = line(".")
-    if b:line =~ '^\s*\(-\|*\|+\|\d\+\.\) \[ \] .*$'
-        let b:newline = substitute(b:line, '\[ \] ', '\[X\] ', "")
-        call setline(b:linenum, b:newline)
-    elseif b:line =~ '^\s*\(-\|*\|+\|\d\+\.\) \[X\] .*$'
-        let b:newline = substitute(b:line, '\[X\] ', '\[ \] ', "")
-        call setline(b:linenum, b:newline)
-    elseif b:line =~ '^\s*\(-\|*\|+\|\d\+\.\) .*$'
-        let b:newline = substitute(b:line, '\(^\s*\)\(-\|*\|+\|\d\+\.\)\s', '\1\2 \[ \] ', "")
-        call setline(b:linenum, b:newline)
-    endif
+  let b:line = getline(".")
+  let b:linenum = line(".")
+  if b:line =~ '^\s*\(-\|*\|+\|\d\+\.\) \[ \] .*$'
+    let b:newline = substitute(b:line, '\[ \] ', '\[X\] ', "")
+    call setline(b:linenum, b:newline)
+  elseif b:line =~ '^\s*\(-\|*\|+\|\d\+\.\) \[X\] .*$'
+    let b:newline = substitute(b:line, '\[X\] ', '\[ \] ', "")
+    call setline(b:linenum, b:newline)
+  elseif b:line =~ '^\s*\(-\|*\|+\|\d\+\.\) .*$'
+    let b:newline = substitute(b:line, '\(^\s*\)\(-\|*\|+\|\d\+\.\)\s', '\1\2 \[ \] ', "")
+    call setline(b:linenum, b:newline)
+  endif
 endfunction
 
 " Header Promotion:
 function! minimd#PromoteHeader()
-    let b:line = getline(".")
-    let b:linenum = line(".")
-    if b:line =~ '^#* .*$'
-        let b:newline = substitute(b:line, '#', '##', "")
-        call setline(b:linenum, b:newline)
-    elseif b:line =~ '^.*$'
-        let b:newline = substitute(b:line, '^', '# ', "")
-        call setline(b:linenum, b:newline)
-    endif
+  let b:line = getline(".")
+  let b:linenum = line(".")
+  if b:line =~ '^#* .*$'
+    let b:newline = substitute(b:line, '#', '##', "")
+    call setline(b:linenum, b:newline)
+  elseif b:line =~ '^.*$'
+    let b:newline = substitute(b:line, '^', '# ', "")
+    call setline(b:linenum, b:newline)
+  endif
 endfunction
 
 " Header Demotion:
 function! minimd#DemoteHeader()
-    let b:line = getline(".")
-    let b:linenum = line(".")
-    if b:line =~ '^##\+ .*$'
-        let b:newline = substitute(b:line, '##', '#', "")
-        call setline(b:linenum, b:newline)
-    elseif b:line =~ '^# .*$'
-        let b:newline = substitute(b:line, '^# ', '', "")
-        call setline(b:linenum, b:newline)
-    endif
+  let b:line = getline(".")
+  let b:linenum = line(".")
+  if b:line =~ '^##\+ .*$'
+    let b:newline = substitute(b:line, '##', '#', "")
+    call setline(b:linenum, b:newline)
+  elseif b:line =~ '^# .*$'
+    let b:newline = substitute(b:line, '^# ', '', "")
+    call setline(b:linenum, b:newline)
+  endif
 endfunction
 
 " Header Motion:
