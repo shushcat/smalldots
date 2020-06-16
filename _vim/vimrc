@@ -1,4 +1,4 @@
-set encoding=utf-8 modelines=0 t_Co=16 
+set encoding=utf-8 modeline modelines=5 t_Co=16 
 filetype plugin indent on
 
 set viminfo^=! 
