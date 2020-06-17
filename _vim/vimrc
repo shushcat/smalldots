@@ -17,7 +17,8 @@ set linebreak autoindent breakindent
 set cpo+=J
 
 set ignorecase smartcase
-set incsearch showmatch hlsearch
+set incsearch hlsearch
+let g:loaded_matchparen=1
 
 set backspace=indent,eol,start
 let mapleader=","
