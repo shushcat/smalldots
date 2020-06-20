@@ -1,2 +1,10 @@
 autocmd FileType minimd nmap <Leader>ms :setlocal spell!<CR>
 autocmd FileType minimd iab <expr> dstmp strftime("[%Y-%m-%d]-")
+
+function! minimd#Journal()
+  let l:date = strftime("%Y-%m-%d")
+  let l:filename = join(["~/notes/.journal/", l:date, ".md"], "")
+  let l:cmd = 'edit'
+  execute l:cmd l:filename
+endfunction
+nnoremap <Leader>jr :call minimd#Journal()<CR>
