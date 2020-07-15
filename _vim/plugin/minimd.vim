@@ -1,5 +1,5 @@
 autocmd FileType minimd nmap <Leader>ms :setlocal spell!<CR>
-autocmd FileType minimd iab <expr> dstmp strftime("[%Y-%m-%d]-")
+autocmd FileType minimd iab <expr> ds strftime("[%Y-%m-%d]-")
 
 function! minimd#Journal()
   let l:date = strftime("%Y-%m-%d")
