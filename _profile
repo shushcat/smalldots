@@ -15,7 +15,7 @@ fzd () { cd "$(fuzzy_find_directory $@)"; }
 lsg () { ls -a | grep -i $(echo "$@" | sed s/\ /.*/); }
 mkcd () { mkdir -p "$*"; cd "$*"; }
 PS1='$(whoami)@$(hostname):$(pwd)
-》'
+$ '
 set -o emacs
 export EDITOR=vim
 export PAGER=less
