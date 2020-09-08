@@ -3,9 +3,8 @@ filetype plugin indent on
 
 set viminfo^=! 
 syntax on
-colorscheme eldar
-set cursorline number 
-set showcmd ruler laststatus=2 display+=lastline 
+colorscheme acme
+set number showcmd ruler laststatus=2 display+=lastline 
 
 set wildmode=longest,list,full wildmenu
 
