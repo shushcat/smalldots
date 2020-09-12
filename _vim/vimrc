@@ -3,7 +3,7 @@ filetype plugin indent on
 
 set viminfo^=! 
 syntax on
-colorscheme acme
+colorscheme acmesque
 set number showcmd ruler laststatus=2 display+=lastline 
 
 set wildmode=longest,list,full wildmenu
