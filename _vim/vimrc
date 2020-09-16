@@ -1,4 +1,4 @@
-set encoding=utf-8 modeline modelines=5 t_Co=16 
+set encoding=utf-8 modeline modelines=1 t_Co=16 
 filetype plugin indent on
 
 set viminfo^=! 
@@ -12,7 +12,7 @@ set autoread autowriteall
 set clipboard^=unnamed,unnamedplus
 
 set shiftround smarttab expandtab
-set linebreak autoindent breakindent
+set linebreak autoindent breakindent noexpandtab
 set cpo+=J
 
 set ignorecase smartcase
