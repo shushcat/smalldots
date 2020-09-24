@@ -1,7 +1,6 @@
 highlight clear 
 
-" for cterm, 'black' might get overwritten by the terminal emulator, so we use
-" 232 (#080808), which is close enough.
+" black #080808 232
 " blue #e6ffff 195
 " red #ffe6e6 224 
 
