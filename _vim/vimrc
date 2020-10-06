@@ -29,3 +29,5 @@ nmap <Leader>w :w<CR>
 nmap <Space> za
 nnoremap <ESC><ESC> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^<C-l>
+
+runtime localrc.vim
