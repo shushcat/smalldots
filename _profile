@@ -1,7 +1,5 @@
 alias cp="cp -ip"
-alias gia="git add"
-alias giA="git add ."
-alias gic="git commit"
+alias gia="git add ."
 alias gil="git log --pretty=oneline"
 alias gim="git commit -m"
 alias gip="git pull"
