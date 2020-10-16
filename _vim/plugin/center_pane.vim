@@ -1,3 +1,4 @@
+"TODO Set highlight colors to hide elements in split panes.
 let s:foldcolumn_default = &foldcolumn
 let s:laststatus_default = &laststatus
 let s:numberwidth_default = &numberwidth
