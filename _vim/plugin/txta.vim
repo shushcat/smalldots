@@ -1,6 +1,5 @@
 let g:note_files =  "~/notes/*.md ~/notes/scratch"
 
-
 function! txta#ShowAgenda()
 	let l:txtacmd = '/home/jobrickley/proj/txt-agenda/txt-agenda.sh -f ' . g:note_files
 	let l:fzf_escape = "'"

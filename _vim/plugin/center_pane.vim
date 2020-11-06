@@ -6,7 +6,7 @@ let s:ruler_default = &ruler
 let s:tabline_default = &tabline
 function! CenterPaneToggle()
   let l:name='_center_pane_pad_'
-  hi VertSplit guifg=bg guibg=NONE gui=NONE
+  hi VertSplit guifg=bg guibg=NONE gui=NONE ctermbg=NONE ctermfg=bg
   set noequalalways
   if bufwinnr(l:name) > 0
     wincmd o
