@@ -1,5 +1,5 @@
 let g:txt_agenda_files =  "~/notes/*.md ~/notes/scratch"
-let g:txt_agenda_cmd = "~/proj/txt-agenda/txt-agenda.sh"
+let g:txt_agenda_cmd = "txt-agenda"
 
 function! s:fzf_selection_jump(line)
 	let l:parts = split(a:line, ':')

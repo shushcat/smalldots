@@ -11,4 +11,4 @@ function! minimd#Journal()
   execute l:cmd l:filename
 endfunction
 nnoremap <Leader>jr :call minimd#Journal()<CR>
-vnoremap <Leader>jr d :call minimd#Journal()<CR> ggO<Esc>ggP
+vnoremap <Leader>jr d :call minimd#Journal()<CR>ggO<Esc>ggP
