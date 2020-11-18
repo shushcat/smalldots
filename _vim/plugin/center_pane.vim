@@ -1,22 +1,31 @@
 "TODO Set highlight colors to hide elements in split panes.
 let s:foldcolumn_default = &foldcolumn
 let s:laststatus_default = &laststatus
+let s:number_default = &number
 let s:numberwidth_default = &numberwidth
 let s:ruler_default = &ruler
 let s:tabline_default = &tabline
+let s:bg_color = synIDattr(hlID("Normal"), "bg")
+" let s:vertsplit_color = exec "hi VertSplit"
+" synIDtrans?
 function! CenterPaneToggle()
   let l:name='_center_pane_pad_'
-  hi VertSplit guifg=bg guibg=NONE gui=NONE ctermbg=NONE ctermfg=bg
+  hi VertSplit ctermfg=black
+  hi NonText guifg=black ctermfg=black
+  hi EndOfBuffer guifg=black ctermfg=black
   set noequalalways
   if bufwinnr(l:name) > 0
     wincmd o
     execute 'set foldcolumn=' . s:foldcolumn_default
     let &laststatus = s:laststatus_default
+		if s:number_default == 1
+			execute 'set number'
+		endif
     execute 'set numberwidth=' . s:numberwidth_default
     let &ruler = s:ruler_default
     execute 'set tabline=' . s:tabline_default
   else
-    set foldcolumn=0 laststatus=0 numberwidth=1 noruler showtabline=0
+    set foldcolumn=0 laststatus=0 numberwidth=1 nonumber noruler showtabline=0
     let l:width = &columns / 7
     execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
     execute 'botright' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
