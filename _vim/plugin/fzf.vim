@@ -19,7 +19,7 @@ endfunction
 function! s:buffer_lines()
   let l:lines = []
 	" call extend(l:lines, map(getline(0,"$"), '(v:key + 1) . ":\t" . v:val '))
-	call extend(l:lines, map(getline(0,"$"), '(v:key + 1) . " " . v:val '))
+	call extend(l:lines, map(getline(0,"$"), '(v:key + 1) . "\t" . v:val '))
   return l:lines
 endfunction
 
@@ -33,7 +33,7 @@ function! s:header_lines()
 	let l:blines = s:buffer_lines()
   let l:hlines = []
 	for line in l:blines
-		if line =~ "^[0-9]*[ ]#[ ]" || line =~ "^[0-9]*[ ]##[ ]"
+		if line =~ "^[0-9]*[	]#[ ]" || line =~ "^[0-9]*[	]##[ ]"
 			call add(l:hlines, line)
 		endif
 	endfor
@@ -41,7 +41,7 @@ function! s:header_lines()
 endfunction
 
 function! s:line_jump(l)
-  let keys = split(a:l, ' ')
+  let keys = split(a:l, '\t')
   exec keys[0]
   normal! ^zz
 endfunction
@@ -59,7 +59,7 @@ endfunction
 command! FZFBLines call fzf#run({
 \   'source':  <sid>buffer_lines(),
 \   'sink':    function('<sid>line_jump'),
-\   'options': '--nth=2..',
+\   'options': '--tac --nth=2..',
 \   'down':    '60%'
 \})
 
