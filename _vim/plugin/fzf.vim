@@ -49,7 +49,7 @@ endfunction
 function! s:other_buffers()
 	let l:buffers = []
 	for n in range(1, bufnr('$'))
-		if bufname() != bufname(n)
+		if bufname("%") != bufname(n)
 			call add(l:buffers, bufname(n))
 		endif
 	endfor
@@ -57,17 +57,17 @@ function! s:other_buffers()
 endfunction
 
 command! FZFBLines call fzf#run({
-\   'source':  <sid>buffer_lines(),
-\   'sink':    function('<sid>line_jump'),
-\   'options': '--tac --nth=2..',
-\   'down':    '60%'
-\})
+			\ 'source':  <sid>buffer_lines(),
+			\ 'sink':    function('<sid>line_jump'),
+			\ 'options': '--tac --nth=2..',
+			\ 'down':    '60%'
+			\})
 
 command! FZFBuffers call fzf#run({
-\   'source':  <sid>other_buffers(),
-\   'sink':    'buffer',
-\   'down':    '60%'
-\})
+			\ 'source':  <sid>other_buffers(),
+			\ 'sink':    'buffer',
+			\ 'down':    '60%'
+			\})
 
 command! FZFFiles call fzf#run({
 		\ 'source': "find * -type f -not -path '*/\.*'",
@@ -76,14 +76,15 @@ command! FZFFiles call fzf#run({
 		\})
 
 command! FZFGrep call fzf#run({
-\   'source':  'rg --vimgrep ' . input("FZFGrep: "),
-\   'sink':    function('<sid>grep_jump'),
-\   'options': '--nth=2..',
-\   'down':    '60%'
-\})
+			\ 'source':  'rg --vimgrep ' . input("FZFGrep: "),
+			\ 'sink':    function('<sid>grep_jump'),
+			\ 'options': '--nth=2..',
+			\ 'down':    '60%'
+			\})
+
 command! FZFHLines call fzf#run({
-\   'source':  <sid>header_lines(),
-\   'sink':    function('<sid>line_jump'),
-\   'options': '--tac --nth=2..',
-\   'down':    '60%'
-\})
+			\ 'source':  <sid>header_lines(),
+			\ 'sink':    function('<sid>line_jump'),
+			\ 'options': '--tac --nth=2..',
+			\ 'down':    '60%'
+			\})
