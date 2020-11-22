@@ -15,7 +15,9 @@ function! CenterPaneToggle()
   hi EndOfBuffer guifg=black ctermfg=black
   set noequalalways
   if bufwinnr(l:name) > 0
-    wincmd o
+		let l:pad_bufnr = bufnr("_center_pane_pad_")
+		exec "bdelete " . l:pad_bufnr
+    silent wincmd o
     execute 'set foldcolumn=' . s:foldcolumn_default
     let &laststatus = s:laststatus_default
 		if s:number_default == 1
