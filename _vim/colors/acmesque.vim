@@ -1,4 +1,10 @@
+set background=dark
 highlight clear 
+
+let g:colors_name = 'acmesque'
+if exists('syntax_on')
+  syntax reset
+endif
 
 " black #080808 232
 " blue #e6ffff 195
