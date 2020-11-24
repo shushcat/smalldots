@@ -23,9 +23,10 @@ set backspace=indent,eol,start
 let mapleader=","
 let maplocalleader=","
 nnoremap Q <nop>
-nmap <Leader>. :cd %:p:h<CR>:pwd<CR>
-nmap <Leader>.. :cd ..<CR>:pwd<CR>
-nmap <Leader>w :w<CR>
-nmap <Space> za
+nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>.. :cd ..<CR>:pwd<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Space> za
+nnoremap <Leader><Leader> <C-^>
 nnoremap <ESC><ESC> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^<C-l>
