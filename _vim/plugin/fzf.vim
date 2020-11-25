@@ -18,7 +18,6 @@ endfunction
 
 function! s:buffer_lines()
   let l:lines = []
-	" call extend(l:lines, map(getline(0,"$"), '(v:key + 1) . ":\t" . v:val '))
 	call extend(l:lines, map(getline(0,"$"), '(v:key + 1) . "\t" . v:val '))
   return l:lines
 endfunction
@@ -40,6 +39,7 @@ function! s:line_jump(l)
   normal! ^zz
 endfunction
 
+" TODO List in MRU order?
 function! s:other_buffers()
 	let l:buffers = []
 	for n in range(1, bufnr('$'))
