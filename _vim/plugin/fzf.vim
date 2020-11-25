@@ -23,12 +23,6 @@ function! s:buffer_lines()
   return l:lines
 endfunction
 
-function! s:grep()
-	let l:pat = input("FZFGrep: ")
-	let l:cmd = "!rg \"" .l:pat ."\""
-  exec l:cmd
-endfunction
-
 function! s:header_lines()
 	let l:blines = s:buffer_lines()
   let l:hlines = []
@@ -76,7 +70,7 @@ command! FZFFiles call fzf#run({
 		\})
 
 command! FZFGrep call fzf#run({
-			\ 'source':  'rg --vimgrep ' . input("FZFGrep: "),
+			\ 'source':  'rg -S --vimgrep ' . input("FZFGrep: "),
 			\ 'sink':    function('<sid>grep_jump'),
 			\ 'options': '--nth=2..',
 			\ 'down':    '60%'
