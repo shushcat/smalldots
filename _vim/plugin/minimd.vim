@@ -16,7 +16,7 @@ autocmd FileType minimd iab 3= ≡
 autocmd FileType minimd nmap <Leader>mt vip:!sed 's/ *\| */ \| /g' \| column -t -s '\|' -o '\|'<CR>
 
 function! minimd#Journal()
-  let l:date = strftime("%Y-%m-%d")
+  let l:date = strftime("%Y-%m")
   let l:filename = join(["~/notes/.journal/", l:date, ".md"], "")
   let l:cmd = 'edit'
   execute l:cmd l:filename
