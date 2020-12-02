@@ -39,11 +39,10 @@ function! s:line_jump(l)
   normal! ^zz
 endfunction
 
-" TODO List in MRU order?
 function! s:other_buffers()
 	let l:buffers = []
 	for n in range(1, bufnr('$'))
-		if bufname("%") != bufname(n)
+		if bufname("%") != bufname(n) && buflisted(bufname(n))
 			call add(l:buffers, bufname(n))
 		endif
 	endfor
