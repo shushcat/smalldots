@@ -42,10 +42,11 @@ endfunction
 function! s:other_buffers()
 	let l:buffers = []
 	for n in range(1, bufnr('$'))
-		if bufname("%") != bufname(n) && buflisted(bufname(n))
+		if bufname("%") != bufname(n) && bufname(n) != bufname("#") && buflisted(bufname(n)) 
 			call add(l:buffers, bufname(n))
 		endif
 	endfor
+	call insert(l:buffers, bufname("#"))
 	return l:buffers
 endfunction
 
@@ -69,7 +70,7 @@ command! FZFFiles call fzf#run({
 		\})
 
 command! FZFGrep call fzf#run({
-			\ 'source':  'rg -S --vimgrep ' . input("FZFGrep: "),
+			\ 'source':  'rg -S --vimgrep "' . input("FZFGrep: ") . '"',
 			\ 'sink':    function('<sid>grep_jump'),
 			\ 'down':    '60%'
 			\})
