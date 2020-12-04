@@ -70,7 +70,7 @@ command! FZFFiles call fzf#run({
 		\})
 
 command! FZFGrep call fzf#run({
-			\ 'source':  'rg -S --vimgrep "' . input("FZFGrep: ") . '"',
+			\ 'source':  'rg -S -n "' . input("FZFGrep: ") . '"',
 			\ 'sink':    function('<sid>grep_jump'),
 			\ 'down':    '60%'
 			\})
