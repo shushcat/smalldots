@@ -1,1 +1,1 @@
-autocmd FileType go nnoremap <Leader>gf :%!gofmt<CR>
+autocmd FileType go nnoremap <Leader>gf m`:%!gofmt<CR>``zz
