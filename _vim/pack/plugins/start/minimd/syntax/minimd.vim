@@ -51,4 +51,8 @@ syntax match squareBrackets "\[" containedin=listItem
 syntax match squareBrackets "\]" containedin=listItem
 highlight default link squareBrackets PreProc
 
+" Reminder Marker:
+syntax match qqMarker "qq" containedin=listItem
+highlight default link qqMarker Todo
+
 let b:current_syntax = "minimd"
