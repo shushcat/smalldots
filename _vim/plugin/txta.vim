@@ -1,5 +1,9 @@
-let g:txt_agenda_files =  "~/notes/*.md ~/notes/scratch"
 let g:txt_agenda_cmd = "txt-agenda"
+let g:txt_agenda_files =  "~/notes/*.md ~/notes/scratch"
+
+let s:txtacmd = g:txt_agenda_cmd . ' -f ' . g:txt_agenda_files
+let s:preview = g:txt_agenda_cmd . ' -p {}'
+let s:fzf_escape = "'"
 
 function! s:fzf_selection_jump(line)
 	let l:parts = split(a:line, ':')
@@ -8,19 +12,10 @@ function! s:fzf_selection_jump(line)
 	exec 'edit +' . l:linr l:file 
 endfunction
 
-function! txta#ShowAgenda()
-	let l:txtacmd = g:txt_agenda_cmd . ' -f ' . g:txt_agenda_files
-	let l:fzf_escape = "'"
-	let l:preview = g:txt_agenda_cmd . ' -p {}'
-	call fzf#run({
-		\ 'source': l:txtacmd,
+command! TXTAgenda	call fzf#run({
+		\ 'source': s:txtacmd,
 		\ 'sink':   function('s:fzf_selection_jump'),
 		\ 'options': '--tac --no-sort +s --preview-window=up:wrap --preview=' .
-		\ l:fzf_escape . l:preview . l:fzf_escape,
-		\ 'window':  'enew' })
-endfunction
+		\ s:fzf_escape . s:preview . s:fzf_escape })
 
-" FIXME When invoked immediately after file selection, <Leader> must be
-" pressed twice.
-command! TXTAgenda call txta#ShowAgenda()
 nnoremap <Leader>a :TXTAgenda<CR>
