@@ -16,7 +16,7 @@ set linebreak autoindent breakindent noexpandtab
 set cpo+=J
 
 set ignorecase smartcase
-set incsearch hlsearch
+set incsearch hlsearch shortmess-=S
 let g:loaded_matchparen=1
 
 set backspace=indent,eol,start
