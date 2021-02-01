@@ -1,6 +1,8 @@
 if executable("fzf")
 	if filereadable("/usr/share/doc/fzf/examples/fzf.vim")
 		source /usr/share/doc/fzf/examples/fzf.vim
+	elseif filereadable("/opt/homebrew/opt/fzf/plugin/fzf.vim")
+		source /opt/homebrew/opt/fzf/plugin/fzf.vim
 	endif
 	nnoremap <Leader>l :FZFBLines<CR>
 	nnoremap <Leader>b :FZFBuffers<CR>
