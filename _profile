@@ -2,12 +2,12 @@ alias cp="cp -ip"
 alias gia="git add"
 alias gil="git log --pretty=oneline"
 alias gim="git commit -m"
-alias gip="git pull"
 alias gis="git status"
 alias mv="mv -i"
 alias q="exit"
 alias rm="rm -i"
 alias tmux="tmux new-session -A -s'0'"
+gip () { git pull --ff-only  origin $(git rev-parse --abbrev-ref HEAD); }
 giP () { git push origin $(git rev-parse --abbrev-ref HEAD); }
 lsg () { ls -a | grep -i $(echo "$@" | sed 's/\ /.*/'); }
 mkcd () { mkdir -p "$*"; cd "$*"; }
