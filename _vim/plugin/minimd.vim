@@ -13,7 +13,7 @@ autocmd FileType minimd iab PS ◊
 autocmd FileType minimd iab 3= ≡
 
 " Format markdown tables
-autocmd FileType minimd nmap <Leader>mt vip:!sed 's/ *\| */ \| /g' \| column -t -s '\|' -o '\|'<CR>
+autocmd FileType minimd nmap <Leader>mt vip:!sed 's/ *\| */\@\@\|/g' \| column -t -s '@@'<CR>
 
 function! minimd#Journal()
   let l:date = strftime("%Y-%m")
