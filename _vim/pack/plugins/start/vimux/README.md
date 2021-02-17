@@ -1,6 +1,6 @@
-# vimux
+# Vimux: easily interact with tmux from vim
 
-Easily interact with tmux from vim.
+[![Vint](https://github.com/preservim/vimux/workflows/Vint/badge.svg)](https://github.com/preservim/vimux/actions?workflow=Vint)
 
 ![vimux](https://www.braintreepayments.com/blog/content/images/blog/vimux3.png)
 
@@ -8,18 +8,18 @@ What inspired me to write vimux was [tslime.vim](https://github.com/kikijump/tsl
 
 My goal with vimux is to make interacting with tmux from vim effortless. By default when you call `VimuxRunCommand` vimux will create a 20% tall horizontal pane under your current tmux pane and execute a command in it without losing focus of vim. Once that pane exists whenever you call `VimuxRunCommand` again the command will be executed in that pane. As I was using vimux myself I wanted to rerun commands over and over. An example of this was running the current file through rspec. Rather than typing that over and over I wrote `VimuxRunLastCommand` that will execute the last command you called with `VimuxRunCommand`.
 
-Other auxiliary functions and the ones I talked about above can be found bellow with a full description and example key binds for your vimrc.
+Other auxiliary functions and the ones I talked about above can be found below with a full description and example key binds for your vimrc.
 
 ## Installation
 
-With **[vim-bundle](https://github.com/benmills/vim-bundle)**: `vim-bundle install benmills/vimux`
-With **[Vundle](https://github.com/gmarik/Vundle.vim)**: 'Plugin benmills/vimux' in your .vimrc
+With **[vim-bundle](https://github.com/preservim/vim-bundle)**: `vim-bundle install preservim/vimux`
+With **[Vundle](https://github.com/gmarik/Vundle.vim)**: `Plugin 'preservim/vimux'` in your .vimrc
 
-Otherwise download the latest [tarball](https://github.com/benmills/vimux/tarball/master), extract it and move `plugin/vimux.vim` inside `~/.vim/plugin`. If you're using [pathogen](https://github.com/tpope/vim-pathogen), then move the entire folder extracted from the tarball into `~/.vim/bundle`.
+Otherwise download the latest [tarball](https://github.com/preservim/vimux/tarball/master), extract it and move `plugin/vimux.vim` inside `~/.vim/plugin`. If you're using [pathogen](https://github.com/tpope/vim-pathogen), then move the entire folder extracted from the tarball into `~/.vim/bundle`.
 
 _Notes:_ 
 
-* Vimux assumes a tmux version >= 1.5. Some older versions might work but it is recommeded to use at least version 1.5.
+* Vimux assumes a tmux version >= 1.5. Some older versions might work but it is recommended to use at least version 1.5.
 
 ## Platform-specific Plugins
 
@@ -38,4 +38,4 @@ _Notes:_
 
 ## Usage
 
-The full documentation is available [online](https://raw.github.com/benmills/vimux/master/doc/vimux.txt) and accessible inside vim `:help vimux`
+The full documentation is available [online](https://raw.github.com/preservim/vimux/master/doc/vimux.txt) and accessible inside vim `:help vimux`
