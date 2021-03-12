@@ -10,7 +10,6 @@ autocmd FileType minimd iab TE ∃
 autocmd FileType minimd iab FA ∀
 autocmd FileType minimd iab NC □
 autocmd FileType minimd iab PS ◊
-autocmd FileType minimd iab 3= ≡
 
 " Format markdown tables
 autocmd FileType minimd nmap <Leader>mt vip:!sed 's/ *\| */\@\@\| /g' \| column -t -s '@@'<CR>
