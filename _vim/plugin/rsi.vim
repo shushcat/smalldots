@@ -1,1 +1,1 @@
-inoremap        <C-l> <Esc>zza
+inoremap <C-l> <Esc>zz:nohlsearch<CR>a
