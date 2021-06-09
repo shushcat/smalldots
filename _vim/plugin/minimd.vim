@@ -8,7 +8,7 @@ autocmd FileType minimd iab <- ←
 autocmd FileType minimd iab 3= ≡
 autocmd FileType minimd iab TE ∃
 autocmd FileType minimd iab FA ∀
-autocmd FileType minimd iab NC □
+autocmd FileType minimd iab NC ◻ 
 autocmd FileType minimd iab PS ◊
 
 " Format markdown tables
