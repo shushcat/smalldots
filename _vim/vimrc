@@ -30,3 +30,4 @@ nnoremap <Space> za
 nnoremap <Leader><Leader> <C-^>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^<C-l>
+runtime local.vim
