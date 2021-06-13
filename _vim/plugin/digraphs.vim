@@ -19,3 +19,5 @@ digraph FA 8704
 digraph NC 9723   
 " ◊
 digraph PS 9674
+" ə
+digraph e_ 601
