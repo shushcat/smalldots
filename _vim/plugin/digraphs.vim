@@ -1,4 +1,6 @@
 " The normal command `ga` shows information for the current character.
+
+" Logic
 " ¬
 digraph NO 172
 " ∧
@@ -19,5 +21,3 @@ digraph FA 8704
 digraph NC 9723   
 " ◊
 digraph PS 9674
-" ə
-digraph e_ 601
