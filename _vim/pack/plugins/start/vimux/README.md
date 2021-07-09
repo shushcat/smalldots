@@ -1,14 +1,13 @@
 # Vimux: easily interact with tmux from vim
 
 [![Vint](https://github.com/preservim/vimux/workflows/Vint/badge.svg)](https://github.com/preservim/vimux/actions?workflow=Vint)
+[![Check](https://github.com/preservim/vimux/workflows/Check/badge.svg)](https://github.com/preservim/vimux/actions?workflow=Check)
 
 ![vimux](https://www.braintreepayments.com/blog/content/images/blog/vimux3.png)
 
-What inspired me to write vimux was [tslime.vim](https://github.com/kikijump/tslime.vim), a plugin that lets you send input to tmux. While tslime.vim works well, I felt it wasn't optimized for my primary use case which was having a smaller tmux pane that I would use to run tests or play with a REPL.
+Vimux was originally inspired by [tslime.vim](https://github.com/jgdavey/tslime.vim/network), a plugin that lets you send input to tmux. While tslime.vim works well, it wasn't optimized for the use case of having a smaller tmux pane used to run tests or play with a REPL. The goal of Vimux is to make interacting with tmux from vim effortless.
 
-My goal with vimux is to make interacting with tmux from vim effortless. By default when you call `VimuxRunCommand` vimux will create a 20% tall horizontal pane under your current tmux pane and execute a command in it without losing focus of vim. Once that pane exists whenever you call `VimuxRunCommand` again the command will be executed in that pane. As I was using vimux myself I wanted to rerun commands over and over. An example of this was running the current file through rspec. Rather than typing that over and over I wrote `VimuxRunLastCommand` that will execute the last command you called with `VimuxRunCommand`.
-
-Other auxiliary functions and the ones I talked about above can be found below with a full description and example key binds for your vimrc.
+By default, when you call `VimuxRunCommand` vimux will create a 20% tall horizontal pane under your current tmux pane and execute a command in it without losing the focus on vim. Once that pane exists, whenever you call `VimuxRunCommand` again the command will be executed in that pane. A frequent use case  is wanting to rerun commands over and over. An example of this is running the current file through rspec. Rather than typing that over and over `VimuxRunLastCommand` will execute the last command called with `VimuxRunCommand`.
 
 ## Installation
 
@@ -19,7 +18,11 @@ Otherwise download the latest [tarball](https://github.com/preservim/vimux/tarba
 
 _Notes:_ 
 
-* Vimux assumes a tmux version >= 1.5. Some older versions might work but it is recommended to use at least version 1.5.
+* Vimux assumes a reasonably new version of tmux. Some older versions might work but it is recommended to use the latest stable release.
+
+## Usage
+
+The full documentation is available [online](https://raw.github.com/preservim/vimux/master/doc/vimux.txt) and accessible inside vim via `:help vimux`
 
 ## Platform-specific Plugins
 
@@ -35,7 +38,3 @@ _Notes:_
 * [vimux-cargo](https://github.com/jtdowney/vimux-cargo) run rust tests and projects using cargo and vimux
 * [vimux-bazel-test](https://github.com/pgr0ss/vimux-bazel-test) Run bazel tests in vimux
 * [vimux-jest-test](https://github.com/tyewang/vimux-jest-test) Run jest tests in vimux
-
-## Usage
-
-The full documentation is available [online](https://raw.github.com/preservim/vimux/master/doc/vimux.txt) and accessible inside vim `:help vimux`
