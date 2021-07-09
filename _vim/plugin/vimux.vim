@@ -10,5 +10,5 @@ function! VimuxSlime()
   call VimuxSendKeys("Enter")
 endfunction
 
-vmap <Leader>vs "vy :call VimuxSlime()<CR>
+vnoremap <Leader>vs "vy :call VimuxSlime()<CR>
 nmap <Leader>vs m`vip<Leader>vs<CR>``
