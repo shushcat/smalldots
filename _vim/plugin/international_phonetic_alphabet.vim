@@ -1,5 +1,4 @@
-" TODO Come up with a reasonable, portable, mnemonic way of inserting IPA
-" symbols
+" TODO A reasonable, portable, mnemonic way of inserting IPA symbols
 
 " Vowels:
 " Mid central vowel
