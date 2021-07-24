@@ -40,6 +40,7 @@ highlight! link MoreMsg Comment
 highlight! link Question Comment
 highlight! link Search Visual
 highlight! link Title Directory
+highlight! link Todo Search
 highlight! link vimFunction Identifier
 highlight! link VisualNOS Visual
 
