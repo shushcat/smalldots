@@ -1,6 +1,7 @@
 inoremap <C-l> <Esc>zz:nohlsearch<CR>a
-inoremap <M-a> <Esc>(i
-inoremap <M-e> <Esc>l)i
-inoremap <M-k> <C-o>d)
-inoremap <M-l> <C-o>guw
-inoremap <M-u> <C-o>gUw
+inoremap a <C-o>(
+inoremap e <C-o>)
+inoremap k <C-o>d)
+inoremap l <C-o>guw<C-o>w
+inoremap u <C-o>gUw<C-o>w
+inoremap c <C-o>~<C-o>w
