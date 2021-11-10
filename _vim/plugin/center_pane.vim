@@ -47,7 +47,7 @@ function! CenterPaneToggle()
     set foldcolumn=0 laststatus=0 numberwidth=1 nonumber noruler showtabline=0
 		set guioptions-=rL
 		set guicursor+=a:blinkon0
-    let l:width = &columns / 5
+    let l:width = &columns / 3
     execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
     execute 'botright' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
     execute "redraw!"
