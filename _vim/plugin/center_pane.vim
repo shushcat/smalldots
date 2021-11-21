@@ -34,9 +34,6 @@ function! CenterPaneToggle()
     silent wincmd o
     execute 'set foldcolumn=' . s:foldcolumn_default
     let &laststatus = s:laststatus_default
-		if s:number_default == 1
-			execute 'set number'
-		endif
     execute 'set numberwidth=' . s:numberwidth_default
     let &ruler = s:ruler_default
     execute 'set tabline=' . s:tabline_default
@@ -44,7 +41,7 @@ function! CenterPaneToggle()
 		execute 'set guicursor=' . s:guicursor_default
 		execute 'colorscheme' g:colors_name
   else
-    set foldcolumn=0 laststatus=0 numberwidth=1 nonumber noruler showtabline=0
+    set foldcolumn=0 laststatus=0 numberwidth=1 noruler showtabline=0
 		set guioptions-=rL
 		set guicursor+=a:blinkon0
     let l:width = &columns / 3
