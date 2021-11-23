@@ -41,12 +41,10 @@ command -bar VimuxClearTerminalScreen :call VimuxClearTerminalScreen()
 command -bar VimuxClearRunnerHistory :call VimuxClearRunnerHistory()
 command -bar VimuxTogglePane :call VimuxTogglePane()
 
-if VimuxOption('VimuxCloseOnExit')
-    augroup VimuxAutocloseCommands
-        au!
-        autocmd VimLeave * call VimuxCloseRunner()
-    augroup END
-endif
+augroup VimuxAutocmds
+  au!
+  autocmd VimLeave * call s:autoclose()
+augroup END
 
 function! VimuxRunCommandInDir(command, useFile) abort
   let l:file = ''
@@ -100,9 +98,7 @@ function! VimuxOpenRunner() abort
   else
     let extraArguments = VimuxOption('VimuxOpenExtraArgs')
     if VimuxOption('VimuxRunnerType') ==# 'pane'
-      let height = VimuxOption('VimuxHeight')
-      let orientation = VimuxOption('VimuxOrientation')
-      call VimuxTmux('split-window -p '.height.' -'.orientation.' '.extraArguments)
+      call VimuxTmux('split-window '.s:vimuxPaneOptions().' '.extraArguments)
     elseif VimuxOption('VimuxRunnerType') ==# 'window'
       call VimuxTmux('new-window '.extraArguments)
     endif
@@ -122,7 +118,7 @@ endfunction
 function! VimuxTogglePane() abort
   if exists('g:VimuxRunnerIndex')
     if VimuxOption('VimuxRunnerType') ==# 'window'
-      call VimuxTmux('join-pane -s '.g:VimuxRunnerIndex.' -p '.VimuxOption('VimuxHeight'))
+      call VimuxTmux('join-pane -s '.g:VimuxRunnerIndex.' '.s:vimuxPaneOptions())
       let g:VimuxRunnerType = 'pane'
       let g:VimuxRunnerIndex = s:tmuxIndex()
       call VimuxTmux('last-'.VimuxOption('VimuxRunnerType'))
@@ -193,7 +189,11 @@ function! VimuxTmux(arguments) abort
   if VimuxOption('VimuxDebug')
     echom VimuxOption('VimuxTmuxCommand').' '.a:arguments
   endif
-  return system(VimuxOption('VimuxTmuxCommand').' '.a:arguments)
+  if has_key(environ(), 'TMUX')
+    return system(VimuxOption('VimuxTmuxCommand').' '.a:arguments)
+  else
+    throw 'Aborting, because not inside tmux session.'
+  endif
 endfunction
 
 function! s:tmuxSession() abort
@@ -214,6 +214,12 @@ endfunction
 
 function! s:tmuxWindowId() abort
   return s:tmuxProperty('#{window_id}')
+endfunction
+
+function! s:vimuxPaneOptions() abort
+    let height = VimuxOption('VimuxHeight')
+    let orientation = VimuxOption('VimuxOrientation')
+    return '-p '.height.' -'.orientation
 endfunction
 
 function! s:nearestIndex() abort
@@ -261,4 +267,10 @@ endfunction
 function! s:hasRunner(index) abort
   let t = VimuxOption('VimuxRunnerType')
   return match(VimuxTmux('list-'.t."s -F '#{".t."_id}'"), a:index)
+endfunction
+
+function! s:autoclose() abort
+  if VimuxOption('VimuxCloseOnExit')
+    call VimuxCloseRunner()
+  endif
 endfunction
