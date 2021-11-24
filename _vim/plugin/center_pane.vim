@@ -45,8 +45,8 @@ function! CenterPaneToggle()
 		set guioptions-=rL
 		set guicursor+=a:blinkon0
     let l:width = &columns / 3
-    execute 'topleft' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
-    execute 'botright' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
+    execute 'keepalt topleft' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
+    execute 'keepalt botright' l:width . 'vsplit +setlocal\ nobuflisted\ nonumber' l:name | wincmd p
     execute "redraw!"
   endif
 endfunction
