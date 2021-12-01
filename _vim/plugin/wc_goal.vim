@@ -29,3 +29,4 @@ endfunction
 
 command! -nargs=1 WCGoal call WCGoal(<f-args>)
 autocmd CursorHoldI * call WCGoal(0)
+autocmd CursorHold * call WCGoal(0)
