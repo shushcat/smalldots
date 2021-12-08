@@ -80,3 +80,7 @@ command! FZFHLines call fzf#run({
 			\ 'options': '--tac --nth=2..',
 			\ 'down':    '60%'
 			\})
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
