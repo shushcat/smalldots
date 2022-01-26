@@ -1,7 +1,4 @@
 let g:txt_agenda_cmd = "txt-agenda"
-let g:txt_agenda_files =  "~/notes/*.md ~/notes/scratch"
-
-let s:txtacmd_global = g:txt_agenda_cmd . ' -f ' . g:txt_agenda_files
 let s:preview = g:txt_agenda_cmd . ' -p {}'
 let s:fzf_escape = "'"
 
@@ -20,7 +17,7 @@ call fzf#run({
 	\ s:fzf_escape . s:preview . s:fzf_escape })
 endfunction
 
-command! TXTAgendaGlobal call TXTAgenda(s:txtacmd_global)
+command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -f * */*')
 command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -f ' . bufname("%"))
 
 nnoremap <Leader>a :TXTAgendaGlobal<CR>
