@@ -1,3 +1,6 @@
 [submodule "_vim/pack/plugins/start/minimd"]
 	path = _vim/pack/plugins/start/minimd
 	url = git@github.com:shushcat/vim-minimd.git
+[submodule "_vim/pack/plugins/start/wc-goal"]
+	path = _vim/pack/plugins/start/wc-goal
+	url = git@github.com:shushcat/vim-wc-goal.git
