@@ -37,6 +37,8 @@ highlight! WildMenu guibg=#080808 guifg=#e6ffff gui=NONE ctermbg=black ctermfg=1
 highlight! link ErrorMsg WarningMsg
 highlight! link IncSearch Search
 highlight! link MoreMsg Comment
+highlight! link Pmenu StatusLine
+highlight! link PmenuSel Visual
 highlight! link Question Comment
 highlight! link Search Visual
 highlight! link Title Directory
