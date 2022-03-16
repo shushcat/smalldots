@@ -1,15 +1,5 @@
 autocmd FileType minimd nmap <Leader>ms :setlocal spell!<CR>
 
-autocmd FileType minimd iab -> →
-autocmd FileType minimd iab <- ←
-autocmd FileType minimd iab AN ∧
-autocmd FileType minimd iab FA ∀
-autocmd FileType minimd iab NC ◻
-autocmd FileType minimd iab NO ¬
-autocmd FileType minimd iab OR ∨
-autocmd FileType minimd iab PS ◊
-autocmd FileType minimd iab TE ∃
-
 autocmd FileType minimd iab <expr> ds strftime("[%Y-%m-%d]")
 
 " Format markdown tables
