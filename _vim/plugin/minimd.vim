@@ -5,6 +5,8 @@ autocmd FileType minimd iab <expr> ds strftime("[%Y-%m-%d]")
 " Format markdown tables
 autocmd FileType minimd nmap <Leader>mt vip:!sed 's/ *\| */\@\@\| /g' \| column -t -s '@@'<CR>
 
+autocmd FileType minimd set suffixesadd=.md
+
 function! minimd#Journal()
   let l:date = strftime("%Y-%m")
   let l:filename = join(["~/notes/.journal/", l:date, ".md"], "")
