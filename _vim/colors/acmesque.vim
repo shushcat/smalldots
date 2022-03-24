@@ -45,5 +45,6 @@ highlight! link Title Directory
 highlight! link Todo Search
 highlight! link vimFunction Identifier
 highlight! link VisualNOS Visual
+highlight! link String Comment
 
 let g:colors_name = "acmesque"
