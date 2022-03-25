@@ -2,13 +2,14 @@ if !exists('g:loaded_fzf')
 	finish
 endif
 
-nnoremap <Leader>l :FZFBLines<CR>
+nnoremap <Leader>al :FZFAllLines<CR>
 nnoremap <Leader>b :FZFBuffers<CR>
 nnoremap <Leader>f :FZFFiles<CR>
 nnoremap <Leader>g :FZFGrep<CR>
 nnoremap <Leader>h :FZFHLines<CR>
+nnoremap <Leader>l :FZFBLines<CR>
 
-function! s:grep_jump(l)
+function! s:file_line_jump(l)
   let keys = split(a:l, ':')
 	exec "e " . keys[0]
   exec keys[1]
@@ -19,6 +20,11 @@ function! s:buffer_lines()
   let l:lines = []
 	call extend(l:lines, map(getline(0,"$"), '(v:key + 1) . "\t" . v:val '))
   return l:lines
+endfunction
+
+function! s:all_lines()
+	let l:alines = systemlist("find -H * -type f -not -path '*/\.*' -exec awk '{print FILENAME \":\" FNR \":\" $0}' '{}' \\;")
+	return l:alines
 endfunction
 
 function! s:header_lines()
@@ -49,6 +55,12 @@ function! s:other_buffers()
 	return l:buffers
 endfunction
 
+command! FZFAllLines call fzf#run({
+			\ 'source':		<sid>all_lines(),
+			\ 'sink':			function('<sid>file_line_jump'),
+			\ 'down':			'60%'
+			\})
+
 command! FZFBLines call fzf#run({
 			\ 'source':  <sid>buffer_lines(),
 			\ 'sink':    function('<sid>line_jump'),
@@ -70,7 +82,7 @@ command! FZFFiles call fzf#run({
 
 command! FZFGrep call fzf#run({
 			\ 'source':  'rg -S -n "' . input("FZFGrep: ") . '"',
-			\ 'sink':    function('<sid>grep_jump'),
+			\ 'sink':    function('<sid>file_line_jump'),
 			\ 'down':    '60%'
 			\})
 
