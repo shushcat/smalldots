@@ -75,7 +75,7 @@ command! FZFBuffers call fzf#run({
 			\})
 
 command! FZFFiles call fzf#run({
-		\ 'source': "find -H * -type f -not -path '*/\.*'",
+		\ 'source': "find -L * -type f -not -path '*/\.*'",
 		\ 'sink':   'e',
 		\ 'down': '60%' 
 		\})
