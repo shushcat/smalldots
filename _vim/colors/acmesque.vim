@@ -6,11 +6,17 @@ if exists('syntax_on')
   syntax reset
 endif
 
-" black #080808 232
-" blue #e6ffff 195
-" red #ffe6e6 224 
-
-highlight! Normal guibg=#ffffea guifg=#080808 ctermbg=230 ctermfg=232 
+" black 				#080808 232
+" blonde				#fcfcce 229
+" blue 					#e6ffff 195
+" chartreuse		#cccc7c	187
+" cream					#ffffea	230
+" dark gray			#505050 239
+" dark yellow   #cccc7c 187
+" faded black		#303030 236
+" pale red			#ffe6e6 224 
+" pale yellow		#ffffca 230
+" wheat					#eaed8d 185
 
 highlight! Comment guibg=bg guifg=#303030 gui=italic ctermbg=bg ctermfg=236 cterm=italic
 highlight! Conceal guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE
@@ -22,29 +28,32 @@ highlight! Folded guibg=#cccc7c guifg=fg gui=italic ctermbg=187 ctermfg=fg cterm
 highlight! Identifier guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! LineNr guibg=bg guifg=#505050 gui=italic ctermbg=bg ctermfg=239 cterm=italic
 highlight! NonText guibg=bg guifg=#ffffea ctermbg=bg ctermfg=230
+highlight! Normal guibg=#ffffea guifg=#080808 ctermbg=230 ctermfg=232
 highlight! PreProc guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! Special guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! SpecialKey guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! Statement guibg=bg guifg=fg gui=italic ctermbg=bg ctermfg=fg cterm=italic
 highlight! StatusLine guibg=#e6ffff guifg=#080808 gui=NONE ctermbg=195 ctermfg=232 cterm=NONE
-highlight! StatusLineNC guibg=#e6ffff guifg=#080808 gui=NONE ctermbg=194 ctermfg=232 cterm=NONE
 highlight! Type guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! VertSplit guibg=#ffffea guifg=#080808 gui=NONE ctermbg=159 ctermfg=232 cterm=NONE
 highlight! Visual guibg=#eaed8d guifg=fg ctermbg=185 ctermfg=fg
 highlight! WarningMsg guibg=#ffe6e6 guifg=fg gui=bold ctermbg=224 ctermfg=fg cterm=bold
-highlight! WildMenu guibg=#080808 guifg=#e6ffff gui=NONE ctermbg=black ctermfg=159 cterm=NONE
+highlight! WildMenu guibg=#080808 guifg=#e6ffff gui=NONE ctermbg=232 ctermfg=159 cterm=NONE
 
 highlight! link ErrorMsg WarningMsg
 highlight! link IncSearch Search
 highlight! link MoreMsg Comment
 highlight! link Pmenu StatusLine
+highlight! link PmenuSbar StatusLine
 highlight! link PmenuSel Visual
+highlight! link PmenuThumb WildMenu
 highlight! link Question Comment
 highlight! link Search Visual
+highlight! link StatusLineNC StatusLine
+highlight! link String Comment
 highlight! link Title Directory
 highlight! link Todo Search
-highlight! link vimFunction Identifier
 highlight! link VisualNOS Visual
-highlight! link String Comment
+highlight! link vimFunction Identifier
 
 let g:colors_name = "acmesque"
