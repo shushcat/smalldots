@@ -18,6 +18,8 @@ endif
 " pale yellow		#ffffca 230
 " wheat					#eaed8d 185
 
+highlight! Normal guibg=#ffffea guifg=#080808 ctermbg=230 ctermfg=232
+
 highlight! Comment guibg=bg guifg=#303030 gui=italic ctermbg=bg ctermfg=236 cterm=italic
 highlight! Conceal guibg=bg guifg=fg gui=NONE ctermbg=bg ctermfg=fg cterm=NONE
 highlight! Constant guibg=bg guifg=#101010 gui=bold ctermbg=bg ctermfg=233 cterm=italic
@@ -28,7 +30,6 @@ highlight! Folded guibg=#cccc7c guifg=fg gui=italic ctermbg=187 ctermfg=fg cterm
 highlight! Identifier guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! LineNr guibg=bg guifg=#505050 gui=italic ctermbg=bg ctermfg=239 cterm=italic
 highlight! NonText guibg=bg guifg=#ffffea ctermbg=bg ctermfg=230
-highlight! Normal guibg=#ffffea guifg=#080808 ctermbg=230 ctermfg=232
 highlight! PreProc guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! Special guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
 highlight! SpecialKey guibg=bg guifg=fg gui=bold ctermbg=bg ctermfg=fg cterm=bold
