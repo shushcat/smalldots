@@ -2,12 +2,12 @@ if !exists('g:loaded_fzf')
 	finish
 endif
 
-nnoremap <Leader>al :FZFAllLines<CR>
+nnoremap <Leader>l :FZFAllLines<CR>
 nnoremap <Leader>b :FZFBuffers<CR>
 nnoremap <Leader>f :FZFFiles<CR>
 nnoremap <Leader>g :FZFGrep<CR>
 nnoremap <Leader>h :FZFHLines<CR>
-nnoremap <Leader>l :FZFBLines<CR>
+nnoremap <Leader>l. :FZFBLines<CR>
 
 function! s:file_line_jump(l)
   let keys = split(a:l, ':')
