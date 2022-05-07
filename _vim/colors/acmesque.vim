@@ -11,6 +11,7 @@ endif
 " blue 					#e6ffff
 " chartreuse		#cccc7c
 " cream					#ffffea
+" light gray		#acaca2
 " dark gray			#505050
 " dark yellow   #cccc7c
 " faded black		#303030
@@ -29,6 +30,7 @@ highlight! FoldColumn guibg=#fcfcce guifg=fg
 highlight! Folded guibg=#cccc7c guifg=fg gui=italic
 highlight! Identifier guibg=bg guifg=fg gui=bold
 highlight! LineNr guibg=bg guifg=#505050 gui=italic
+highlight! MatchParen guibg=#acaca2 guifg=fg
 highlight! NonText guibg=bg guifg=#ffffea
 highlight! PreProc guibg=bg guifg=fg gui=bold
 highlight! Special guibg=bg guifg=fg gui=bold

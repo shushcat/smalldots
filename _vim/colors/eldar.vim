@@ -125,7 +125,7 @@ let  s:ColourAssignment['MoreMsg']       =  {'GUIFG':  s:green,  'CTERMFG':  'Gr
 
 " Visual aid
 " ----------
-let  s:ColourAssignment['MatchParen']  =  {'GUIBG':  s:cyan,      'CTERMBG':  'cyan'}
+let  s:ColourAssignment['MatchParen']  =  {'GUIBG':  'DarkGray',      'CTERMBG':  'DarkGray'}
 let  s:ColourAssignment['Visual']      =  {'GUIBG':  'DarkGrey'}
 highlight! link VisualNOS Visual
 let  s:ColourAssignment['NonText']     =  {'GUIFG':  s:blue,      'CTERMFG':  'blue'}

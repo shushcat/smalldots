@@ -20,6 +20,7 @@ hi Folded	guifg=#44cc44 guibg=#113311
 hi FoldColumn	guifg=#44cc44 guibg=#226622
 hi IncSearch	guifg=#226622 guibg=#55ff55 gui=none
 hi LineNr	guifg=#44cc44 guibg=#000000
+hi MatchParen guifg=#44cc44 guibg=#113311
 hi ModeMsg	guifg=#113311 guibg=#000000
 hi MoreMsg	guifg=#44cc44 guibg=#000000
 hi NonText	guifg=#113311 guibg=#000000
