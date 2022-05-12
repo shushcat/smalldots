@@ -9,6 +9,7 @@ endif
 hi Cursor	guifg=#226622 guibg=#55ff55
 hi lCursor	guifg=#226622 guibg=#55ff55
 hi CursorIM	guifg=#226622 guibg=#55ff55
+hi CursorLineNr guifg=#55ff55
 hi Directory	guifg=#55ff55 guibg=#000000
 hi DiffAdd	guifg=#55ff55 guibg=#226622 gui=none
 hi DiffChange	guifg=#55ff55 guibg=#226622 gui=none
@@ -46,5 +47,7 @@ hi Type		guifg=#55ff55 guibg=#000000 gui=bold
 hi Underlined	guifg=#55ff55 guibg=#000000 gui=underline
 hi Error	guifg=#55ff55 guibg=#339933
 hi Todo		guifg=#113311 guibg=#44cc44 gui=none
+
+hi! link CursorLine Normal
 
 let g:colors_name = "phosphor"

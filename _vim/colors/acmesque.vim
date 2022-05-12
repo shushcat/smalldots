@@ -24,7 +24,7 @@ highlight! Normal guibg=#ffffea guifg=#080808
 highlight! Comment guibg=bg guifg=#303030 gui=italic
 highlight! Conceal guibg=bg guifg=fg gui=NONE
 highlight! Constant guibg=bg guifg=#101010 gui=bold
-highlight! CursorLine guibg=#ffffca guifg=fg
+highlight! CursorLineNr guifg=#080808
 highlight! Directory guibg=bg guifg=fg gui=bold
 highlight! FoldColumn guibg=#fcfcce guifg=fg
 highlight! Folded guibg=#cccc7c guifg=fg gui=italic
@@ -43,6 +43,7 @@ highlight! Visual guibg=#eaed8d guifg=fg
 highlight! WarningMsg guibg=#ffe6e6 guifg=fg gui=bold
 highlight! WildMenu guibg=#080808 guifg=#e6ffff gui=NONE
 
+highlight! link CursorLine Normal
 highlight! link ErrorMsg WarningMsg
 highlight! link IncSearch Search
 highlight! link MoreMsg Comment
