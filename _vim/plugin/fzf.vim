@@ -89,8 +89,8 @@ command! FZFGrep call fzf#run({
 command! FZFHLines call fzf#run({
 			\ 'source':  <sid>header_lines(),
 			\ 'sink':    function('<sid>line_jump'),
-			\ 'options': '--tac --nth=2..',
-			\ 'down':    '60%'
+			\ 'options': '--nth=2.. --reverse',
+			\ 'left':    '30%'
 			\})
 
 autocmd! FileType fzf
