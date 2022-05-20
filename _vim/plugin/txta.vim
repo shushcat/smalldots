@@ -29,7 +29,7 @@ function! TXTAgendaInsert(txtacmd)
 endfunction
 
 command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -f * */*')
-command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -f ' . bufname("%"))
+command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -f "' . bufname("%") . '"')
 command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
 nnoremap <Leader>a :TXTAgendaGlobal<CR>
