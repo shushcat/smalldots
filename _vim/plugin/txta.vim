@@ -32,6 +32,6 @@ command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -f * */*')
 command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -f "' . bufname("%") . '"')
 command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
-nnoremap <Leader>a :TXTAgendaGlobal<CR>
-nnoremap <Leader>a. :TXTAgendaLocal<CR>
+nnoremap <Leader>A :TXTAgendaGlobal<CR>
+nnoremap <Leader>a :TXTAgendaLocal<CR>
 nnoremap <Leader>ai :TXTAgendaInsert<CR>
