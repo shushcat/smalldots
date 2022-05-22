@@ -49,5 +49,9 @@ hi Error	guifg=#55ff55 guibg=#339933
 hi Todo		guifg=#113311 guibg=#44cc44 gui=none
 
 hi! link CursorLine Normal
+hi! link Pmenu StatusLine
+hi! link PmenuSbar StatusLine
+hi! link PmenuSel Visual
+hi! link PmenuThumb WildMenu
 
 let g:colors_name = "phosphor"
