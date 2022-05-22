@@ -32,10 +32,17 @@ function! s:header_lines()
   let l:hlines = []
 	for line in l:blines
 		if line =~ "^[0-9]*[	]#[ ]" || line =~ "^[0-9]*[	]##[ ]"
+			let line = substitute(line, '^\([0-9]*\)	\(.*\)$', '\2	\1', "")
 			call add(l:hlines, line)
 		endif
 	endfor
   return l:hlines
+endfunction
+
+function! s:hline_jump(l)
+  let keys = split(a:l, '\t')
+  exec keys[-1]
+  normal! ^zz
 endfunction
 
 function! s:line_jump(l)
@@ -88,7 +95,7 @@ command! FZFGrep call fzf#run({
 
 command! FZFHLines call fzf#run({
 			\ 'source':  <sid>header_lines(),
-			\ 'sink':    function('<sid>line_jump'),
+			\ 'sink':    function('<sid>hline_jump'),
 			\ 'options': '--nth=2.. --reverse',
 			\ 'left':    '30%'
 			\})
