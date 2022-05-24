@@ -38,7 +38,7 @@ highlight! SpecialKey guibg=bg guifg=fg gui=bold
 highlight! Statement guibg=bg guifg=fg gui=italic
 highlight! StatusLine guibg=#e6ffff guifg=#080808 gui=NONE
 highlight! Type guibg=bg guifg=fg gui=bold
-highlight! VertSplit guibg=#ffffea guifg=#080808 gui=NONE
+highlight! VertSplit guibg=#e6ffff guifg=#e6ffff
 highlight! Visual guibg=#eaed8d guifg=fg
 highlight! WarningMsg guibg=#ffe6e6 guifg=fg gui=bold
 highlight! WildMenu guibg=#080808 guifg=#e6ffff gui=NONE
