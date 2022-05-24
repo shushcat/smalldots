@@ -16,7 +16,8 @@ hi DiffChange	guifg=#55ff55 guibg=#226622 gui=none
 hi DiffDelete	guifg=#113311 guibg=#113311 gui=none
 hi DiffText	guifg=#55ff55 guibg=#339933 gui=bold
 hi ErrorMsg	guifg=#55ff55 guibg=#339933
-hi VertSplit	guifg=#339933 guibg=#339933
+" hi VertSplit	guifg=#339933 guibg=#339933
+hi VertSplit	guifg=#113311 guibg=#113311
 hi Folded	guifg=#44cc44 guibg=#113311
 hi FoldColumn	guifg=#44cc44 guibg=#226622
 hi IncSearch	guifg=#226622 guibg=#55ff55 gui=none
