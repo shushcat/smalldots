@@ -1,4 +1,4 @@
-let g:txt_agenda_cmd = "txt-agenda"
+let g:txt_agenda_cmd = "txt-agenda -s"
 let s:preview = g:txt_agenda_cmd . ' -p {}'
 let s:fzf_escape = "'"
 
@@ -13,7 +13,7 @@ function! TXTAgenda(txtacmd)
 call fzf#run({
 	\ 'source': a:txtacmd,
 	\ 'sink':   function('s:fzf_selection_jump'),
-	\ 'options': '--tac --no-sort +s --preview-window=up:wrap --preview=' .
+	\ 'options': '--no-sort +s --preview-window=up:wrap --preview=' .
 	\ s:fzf_escape . s:preview . s:fzf_escape })
 endfunction
 
