@@ -1,4 +1,4 @@
-let g:txt_agenda_cmd = "txt-agenda -s"
+let g:txt_agenda_cmd = "txt-agenda"
 let s:preview = g:txt_agenda_cmd . ' -p {}'
 let s:fzf_escape = "'"
 
@@ -28,8 +28,8 @@ function! TXTAgendaInsert(txtacmd)
 	call append('.', l:items)
 endfunction
 
-command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -f * */*')
-command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -f "' . bufname("%") . '"')
+command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -s -f * */*')
+command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -s -f "' . bufname("%") . '"')
 command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
 nnoremap <Leader>A :TXTAgendaGlobal<CR>
