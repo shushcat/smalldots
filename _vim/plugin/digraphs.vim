@@ -246,3 +246,11 @@ digraph \|2 449
 digraph =\ 450
 " ‿ linking mark
 digraph -\ 8255
+
+" Combining:
+" Add a circumflex above the previous character
+digraph ^> 770
+" Add a bar below the previous character
+digraph ^_ 817
+" Add a cedilla below the previous character
+digraph ^, 807
