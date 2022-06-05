@@ -7,7 +7,13 @@ function! s:journal_file_date()
 	endif
 endfunction
 
+function! s:defer_unlist_buffer()
+	au BufWinLeave <buffer> set nobuflisted
+endfunction
+
 function! journal#OpenJournal()
+	" au BufWinLeave <buffer> set nobuflisted
+	call s:defer_unlist_buffer()
 	if !exists('g:journal_directory')
 		echo "`g:journal_directory` is not set."
 		return
@@ -18,6 +24,7 @@ function! journal#OpenJournal()
 endfunction
 
 function! journal#NextJournalMonth()
+	call s:defer_unlist_buffer()
 	let l:date =  s:journal_file_date()
 	if l:date == 0
 		echo "The current buffer isn't a journal file."
@@ -37,6 +44,7 @@ function! journal#NextJournalMonth()
 endfunction
 
 function! journal#PrevJournalMonth()
+	call s:defer_unlist_buffer()
 	let l:date =  s:journal_file_date()
 	if l:date == 0
 		echo "The current buffer isn't a journal file."
