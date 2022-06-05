@@ -1,5 +1,3 @@
-let g:journal_directory = "~/notes/.journal/"
-
 function! s:journal_file_date()
 	if bufname("%") =~ "[0-9][0-9][0-9][0-9]-[0-9][0-9].md"
 		let l:date = strpart(bufname("%"), match(bufname("%"), "[0-9][0-9][0-9][0-9]-[0-9][0-9].md"), 7)
@@ -10,9 +8,13 @@ function! s:journal_file_date()
 endfunction
 
 function! journal#OpenJournal()
+	if !exists('g:journal_directory')
+		echo "`g:journal_directory` is not set."
+		return
+	endif
   let l:date = strftime("%Y-%m")
   let l:filename = join([g:journal_directory, l:date, ".md"], "")
-  execute 'edit ' . l:cmd l:filename
+  execute 'edit ' . l:filename
 endfunction
 
 function! journal#NextJournalMonth()
@@ -58,3 +60,6 @@ nnoremap <C-PageDown> :call journal#NextJournalMonth()<CR>
 
 nnoremap <Leader>jr :call journal#OpenJournal()<CR>
 vnoremap <Leader>jr d :call journal#OpenJournal()<CR>ggO<Esc>ggP
+
+nnoremap <C-Home> :call journal#OpenJournal()<CR>
+vnoremap <C-Home> d :call journal#OpenJournal()<CR>ggO<Esc>ggP
