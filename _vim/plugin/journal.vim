@@ -7,13 +7,7 @@ function! s:journal_file_date()
 	endif
 endfunction
 
-function! s:defer_unlist_buffer()
-	au BufWinLeave <buffer> set nobuflisted
-endfunction
-
 function! journal#OpenJournal()
-	" au BufWinLeave <buffer> set nobuflisted
-	call s:defer_unlist_buffer()
 	if !exists('g:journal_directory')
 		echo "`g:journal_directory` is not set."
 		return
@@ -21,10 +15,10 @@ function! journal#OpenJournal()
   let l:date = strftime("%Y-%m")
   let l:filename = join([g:journal_directory, l:date, ".md"], "")
   execute 'edit ' . l:filename
+	set nobuflisted
 endfunction
 
 function! journal#NextJournalMonth()
-	call s:defer_unlist_buffer()
 	let l:date =  s:journal_file_date()
 	if l:date == 0
 		echo "The current buffer isn't a journal file."
@@ -41,10 +35,10 @@ function! journal#NextJournalMonth()
 	endif
 	let l:journal_path = g:journal_directory . l:year . "-" . l:month . ".md"
 	exec 'edit ' . l:journal_path
+	set nobuflisted
 endfunction
 
 function! journal#PrevJournalMonth()
-	call s:defer_unlist_buffer()
 	let l:date =  s:journal_file_date()
 	if l:date == 0
 		echo "The current buffer isn't a journal file."
@@ -61,6 +55,7 @@ function! journal#PrevJournalMonth()
 	endif
 	let l:journal_path = g:journal_directory . l:year . "-" . l:month . ".md"
 	exec 'edit ' . l:journal_path
+	set nobuflisted
 endfunction
 
 nnoremap <C-PageUp> :call journal#PrevJournalMonth()<CR>
