@@ -5,6 +5,7 @@ set viminfo^=!
 syntax on
 colorscheme eldar
 set number cursorline showcmd ruler display+=lastline
+set scrolloff=1 sidescrolloff=5
 
 set wildmode=longest,list,full wildmenu
 
@@ -18,6 +19,8 @@ set cpo+=J
 set ignorecase smartcase
 set incsearch hlsearch shortmess-=S
 
+set nrformats-=octal
+
 set backspace=indent,eol,start
 let mapleader=","
 let maplocalleader=","
@@ -29,4 +32,4 @@ nnoremap <Space> za
 nnoremap <Leader><Leader> <C-^>
 nnoremap <C-l> :nohlsearch<CR><C-l>
 inoremap jk <ESC>`^
-runtime local.vim
+runtime! local.vim macros/matchit.vim
