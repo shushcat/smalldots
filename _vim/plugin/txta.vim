@@ -34,4 +34,3 @@ command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
 nnoremap <Leader>A :TXTAgendaGlobal<CR>
 nnoremap <Leader>a :TXTAgendaLocal<CR>
-nnoremap <Leader>ai :TXTAgendaInsert<CR>
