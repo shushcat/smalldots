@@ -2,15 +2,28 @@ if exists('g:loaded_center_pane')
 	finish
 endif
 
-let s:foldcolumn_default = &foldcolumn
-let s:laststatus_default = &laststatus
-let s:number_default = &number
-let s:numberwidth_default = &numberwidth
-let s:ruler_default = &ruler
-let s:tabline_default = &tabline
-let s:guioptions_default = &guioptions
-let s:guicursor_default = &guicursor
 let s:padname = '_center_pane_pad_'
+
+function! s:set_defaults()
+	let s:foldcolumn_default = &foldcolumn
+	let s:laststatus_default = &laststatus
+	let s:number_default = &number
+	let s:numberwidth_default = &numberwidth
+	let s:ruler_default = &ruler
+	let s:tabline_default = &tabline
+	let s:guioptions_default = &guioptions
+	let s:guicursor_default = &guicursor
+endfunction
+
+function! s:get_defaults()
+	execute 'set foldcolumn=' . s:foldcolumn_default
+	let &laststatus = s:laststatus_default
+	execute 'set numberwidth=' . s:numberwidth_default
+	let &ruler = s:ruler_default
+	execute 'set tabline=' . s:tabline_default
+	execute 'set guioptions=' . s:guioptions_default
+	execute 'set guicursor=' . s:guicursor_default
+endfunction
 
 function! s:set_colors()
 	let l:normalhl = execute("hi Normal")
@@ -34,17 +47,12 @@ function! s:remove_center_pane_pads()
 	let l:pad_bufnr = bufnr(s:padname)
 	exec "bwipeout " . l:pad_bufnr
 	silent wincmd o
-	execute 'set foldcolumn=' . s:foldcolumn_default
-	let &laststatus = s:laststatus_default
-	execute 'set numberwidth=' . s:numberwidth_default
-	let &ruler = s:ruler_default
-	execute 'set tabline=' . s:tabline_default
-	execute 'set guioptions=' . s:guioptions_default
-	execute 'set guicursor=' . s:guicursor_default
+	call s:get_defaults()
 	execute 'colorscheme' g:colors_name
 endfunction
 
 function! s:create_center_pane_pads()
+	call s:set_defaults()
 	set foldcolumn=0 laststatus=0 numberwidth=1 noruler showtabline=0
 	set guioptions-=rL
 	set guicursor+=a:blinkon0
