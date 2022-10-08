@@ -4,5 +4,4 @@ function! EditScratchFile()
 	silent! pwd
 endfunction
 
-nnoremap <Leader>s :call EditScratchFile()<CR>
 nnoremap <C-End> :call EditScratchFile()<CR>
