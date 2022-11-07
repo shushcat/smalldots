@@ -17,6 +17,6 @@ $ '
 set -o emacs
 export EDITOR=vim
 export PAGER=less
-export VISUAL=vim
 export PATH="$HOME/bin:$PATH"
+export VISUAL=vim
 if [ -f ~/.localrc ]; then . ~/.localrc; fi
