@@ -13,7 +13,7 @@ function! TXTAgenda(txtacmd)
 call fzf#run({
 	\ 'source': a:txtacmd,
 	\ 'sink':   function('s:fzf_selection_jump'),
-	\ 'options': '--no-sort +s --preview-window=up:wrap --preview=' .
+	\ 'options': '--reverse --no-sort +s --preview-window=up:wrap --preview=' .
 	\ s:fzf_escape . s:preview . s:fzf_escape })
 endfunction
 
@@ -28,7 +28,7 @@ function! TXTAgendaInsert(txtacmd)
 	call append('.', l:items)
 endfunction
 
-command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -s -f * */*')
+command! TXTAgendaGlobal call TXTAgenda(g:txt_agenda_cmd . ' -f ./* ./*/*')
 command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -s -f "' . bufname("%") . '"')
 command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
