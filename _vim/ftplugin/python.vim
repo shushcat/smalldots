@@ -4,4 +4,7 @@ function! VimuxPySlime()
   call VimuxSendKeys("Enter")
 endfunction
 
-autocmd FileType python vnoremap <Leader>vs "vy :call VimuxPySlime()<CR>
+vnoremap <Leader>vs "vy :call VimuxPySlime()<CR>
+
+setlocal tabstop=4
+setlocal expandtab
