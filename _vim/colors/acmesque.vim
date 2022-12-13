@@ -1,5 +1,7 @@
-set background=dark
+set background=light
 highlight clear 
+
+" An Acme-esque theme for GVim.
 
 let g:colors_name = 'acmesque'
 if exists('syntax_on')
@@ -9,14 +11,14 @@ endif
 " black 				#080808
 " blonde				#fcfcce
 " blue 					#e6ffff
-" chartreuse		#cccc7c
+" chartreuse				#cccc7c
 " cream					#ffffea
-" light gray		#acaca2
-" dark gray			#505050
-" dark yellow   #cccc7c
-" faded black		#303030
-" pale red			#ffe6e6
-" pale yellow		#ffffca
+" light gray				#acaca2
+" dark gray				#505050
+" dark yellow   			#cccc7c
+" faded black				#303030
+" pale red				#ffe6e6
+" pale yellow				#ffffca
 " wheat					#eaed8d
 
 highlight! Normal guibg=#ffffea guifg=#080808
