@@ -12,7 +12,7 @@ gip () { git pull --ff-only  origin $(git rev-parse --abbrev-ref HEAD); }
 giP () { git push origin $(git rev-parse --abbrev-ref HEAD); }
 lsg () { ls -a | grep -i $(echo "$@" | sed 's/\ /.*/g'); }
 mkcd () { mkdir -p "$*"; cd "$*"; }
-PS1='$(whoami)@$(hostname):$(pwd)
+PS1='$(whoami)@$(uname -n):$(pwd)
 $ '
 set -o emacs
 export EDITOR=vim
