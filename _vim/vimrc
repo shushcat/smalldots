@@ -28,6 +28,7 @@ nnoremap Q <nop>
 nnoremap <Leader>. :cd %:p:h<CR>:pwd<CR>
 nnoremap <Leader>.. :cd ..<CR>:pwd<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <silent> <Leader>y :let @+=expand("%:p")<CR>
 nnoremap <Space> za
 nnoremap <Leader><Leader> <C-^>
 nnoremap <C-l> :nohlsearch<CR><C-l>
