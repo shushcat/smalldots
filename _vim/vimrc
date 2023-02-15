@@ -1,3 +1,4 @@
+unlet! skip_defaults_vim
 set encoding=utf-8 modeline modelines=1 t_Co=16 
 filetype plugin indent on
 
@@ -6,6 +7,9 @@ syntax on
 colorscheme eldar
 set number cursorline showcmd ruler display+=lastline
 set scrolloff=1 sidescrolloff=5
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 
 set wildmode=longest,list,full wildmenu
 
