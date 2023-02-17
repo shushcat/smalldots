@@ -9,5 +9,9 @@ function! tmux#SendText(text)
 	let l:text = ('"' . escape(a:text, '\"$') . '"')
 	call system("tmux send-keys -t'{marked}' " . l:text)
 endfunction
-vnoremap <silent> <Leader>s "ry :call tmux#SendText(@r)<CR>
-nnoremap <silent> <Leader>s vip"ry :call tmux#SendText(@r)<CR>
+
+command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -s -f "' . bufname("%") . '"')
+
+" TODO Move the save (m') and restore ('') commands into SendText()
+vnoremap <silent> <Leader>s m'"ry :call tmux#SendText(@r)<CR>''
+nnoremap <silent> <Leader>s m'vip"ry :call tmux#SendText(@r)<CR>''
