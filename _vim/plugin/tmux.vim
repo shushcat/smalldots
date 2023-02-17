@@ -12,6 +12,6 @@ endfunction
 
 command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -s -f "' . bufname("%") . '"')
 
-" TODO Move the save (m') and restore ('') commands into SendText()
-vnoremap <silent> <Leader>s m'"ry :call tmux#SendText(@r)<CR>''
-nnoremap <silent> <Leader>s m'vip"ry :call tmux#SendText(@r)<CR>''
+" TODO Move the save (m') and restore (``) commands into SendText()
+vnoremap <silent> <Leader>s m'"ry :call tmux#SendText(@r)<CR>``
+nnoremap <silent> <Leader>s m'vip"ry :call tmux#SendText(@r)<CR>``
