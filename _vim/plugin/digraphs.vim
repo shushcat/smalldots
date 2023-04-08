@@ -18,7 +18,7 @@ digraph TE 8707
 " ∀
 digraph FA 8704
 " ◻
-digraph NC 9723
+digraph NC 9633
 " ◊
 digraph PS 9674
 
