@@ -76,7 +76,7 @@ command! FZFFiles call fzf#run({
 		\})
 
 command! FZFGrep call fzf#run({
-			\ 'source':  'rg -S -n "' . input("FZFGrep: ") . '"',
+			\ 'source':  'rg -LSn "' .  input("FZFGrep: ") . '"',
 			\ 'sink':    function('<sid>file_line_jump'),
 			\ 'down':    '60%'
 			\})
