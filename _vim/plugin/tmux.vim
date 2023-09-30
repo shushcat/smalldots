@@ -15,3 +15,6 @@ command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' -s -f "' . bufname("
 " TODO Move the save (m') and restore (``) commands into SendText()
 vnoremap <silent> <Leader>s m'"ry :call tmux#SendText(@r)<CR>``
 nnoremap <silent> <Leader>s m'vip"ry :call tmux#SendText(@r)<CR>``
+
+" Repeat the last command by sending an upward arrow followed by return
+nnoremap <silent> <Leader>l :call tmux#SendText("\u001b[A\n")<CR>
