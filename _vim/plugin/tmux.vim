@@ -17,4 +17,4 @@ vnoremap <silent> <Leader>s m'"ry :call tmux#SendText(@r)<CR>``
 nnoremap <silent> <Leader>s m'vip"ry :call tmux#SendText(@r)<CR>``
 
 " Repeat the last command by sending an upward arrow followed by return
-nnoremap <silent> <Leader>l :call tmux#SendText("\u001b[A\n")<CR>
+nnoremap <silent> <Leader>r :call tmux#SendText("\u001b[A\n")<CR>
