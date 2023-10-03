@@ -85,7 +85,7 @@ command! FZFHLines call fzf#run({
 			\ 'source':  <sid>header_lines(),
 			\ 'sink':    function('<sid>hline_jump'),
 			\ 'options': '--nth=2.. --reverse',
-			\ 'left':    '30%'
+			\ 'down':    '60%'
 			\})
 
 autocmd! FileType fzf
