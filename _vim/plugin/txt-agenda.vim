@@ -43,7 +43,7 @@ function! s:agenda_tasks()
 endfunction
 
 " TODO Separate the jump and display functionality.
-function! s:agenda_tasks_smooth()
+function! s:agenda_tasks_smooth(txtacmd)
 	if(v:servername=="")
 		call remote_startserver(rand())
 	endif
@@ -52,7 +52,7 @@ function! s:agenda_tasks_smooth()
 		\ ' --remote-expr "win_execute(' . l:main_window . ', '
 	let l:bind_string_r = ')")'
 	call fzf#run({
-	\ 'source': 'txt-agenda -p 12 -f 12 "' . bufname("%"). '" | grep "TODO\|ACTV\|WAIT\|\[ \]"',
+	\ 'source': a:txtacmd . ' | grep "TODO\|ACTV\|WAIT\|\[ \]"',
 	\ 'sink':   function('s:fzf_selection_jump'),
 	\ 'options': [ '--delimiter=:', '--reverse', '--no-sort', '--with-nth=4..',
 		\ '--bind=tab:' . l:bind_string_l . "{3}" . l:bind_string_r .
@@ -65,9 +65,11 @@ command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' "' . bufname("%") . 
 
 command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
-command! TXTAgendaLocalTasks call s:agenda_tasks_smooth()
+command! TXTAgendaLocalTasks call s:agenda_tasks_smooth(g:txt_agenda_cmd . ' -p 12 -f 12 "' . bufname("%") .'"')
+command! TXTAgendaGlobalTasks call TXTAgenda(g:txt_agenda_cmd . ' -p 12 -f 12 ./* ./*/* | grep "TODO\|ACTV\|WAIT\|\[ \]"')
 
 nnoremap <Leader>A :TXTAgendaGlobal<CR>
 nnoremap <Leader>a :TXTAgendaLocal<CR>
 
 nnoremap <Leader>t :TXTAgendaLocalTasks<CR>
+nnoremap <Leader>T :TXTAgendaGlobalTasks<CR>
