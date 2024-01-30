@@ -1,16 +1,15 @@
-" When using Tmux, create a vertical or horizontal split pane in the current
+" When using `tmux`, create a vertical or horizontal split pane in the current
 " working directory.
 map <Leader>" :silent !tmux split-window -v<CR>
 map <Leader>% :silent !tmux split-window -h<CR>
 
-" Send either visually selected text or the current block to the
-" marked Tmux pane.
+" Send `text` to the currently marked `tmux` pane.
 function! tmux#SendText(text)
 	let l:text = ('"' . escape(a:text, '\"$') . '"')
 	call system("tmux send-keys -t'{marked}' " . l:text)
 endfunction
 
-" TODO Move the save (m') and restore (``) commands into SendText()
+" Send a visually selected region or the current block to the marked pane.
 vnoremap <silent> <Leader>s m'"ry :call tmux#SendText(@r)<CR>``
 nnoremap <silent> <Leader>s m'vip"ry :call tmux#SendText(@r)<CR>``
 
