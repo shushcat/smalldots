@@ -44,8 +44,8 @@ endfunction
 
 " TODO Separate the jump and display functionality.
 function! s:agenda_tasks_smooth(txtacmd)
-	if(v:servername=="")
-		call remote_startserver(rand())
+	if(strlen(v:servername) == 0)
+		call remote_startserver(string(rand()))
 	endif
 	let l:main_window = win_getid()
 	let l:bind_string_l = 'execute(vim --servername ' . v:servername .
