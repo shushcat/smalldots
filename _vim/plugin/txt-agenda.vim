@@ -16,6 +16,14 @@ call fzf#run({
 	\ 'options': '--reverse --no-sort +s'})
 endfunction
 
+" Testing.  Currently checks all files under the working directory.
+function! TXTAgendaQuicklist(txtacmd)
+	" let l:qfl = getqflist({'lines': systemlist('txta | grep "TODO\|ACTV\|WAIT\|\[ \]"'), 'efm': '%o:%f:%l:%m'})
+	let l:qfl = getqflist({'lines': systemlist(a:txtacmd), 'efm': '%o:%f:%l:%m'})
+	call setqflist(get(l:qfl, 'items', []))
+	exec "copen"
+endfunction
+
 function! TXTAgendaInsert(txtacmd)
 	let l:output = split(system(a:txtacmd), '\n')
 	let l:items = []
@@ -48,8 +56,7 @@ function! s:agenda_tasks_smooth(txtacmd)
 		call remote_startserver(string(rand()))
 	endif
 	let l:main_window = win_getid()
-	let l:bind_string_l = 'execute(vim --servername ' . v:servername .
-		\ ' --remote-expr "win_execute(' . l:main_window . ', '
+	let l:bind_string_l = 'execute(vim --servername ' . v:servername .  \ ' --remote-expr "win_execute(' . l:main_window . ', '
 	let l:bind_string_r = ')")'
 	call fzf#run({
 	\ 'source': a:txtacmd . ' | grep "TODO\|ACTV\|WAIT\|\[ \]"',
@@ -66,7 +73,8 @@ command! TXTAgendaLocal call TXTAgenda(g:txt_agenda_cmd . ' "' . bufname("%") . 
 command! TXTAgendaInsert call TXTAgendaInsert(g:txt_agenda_cmd . ' -f * */*')
 
 command! TXTAgendaLocalTasks call s:agenda_tasks_smooth(g:txt_agenda_cmd . ' -p 12 -f 12 "' . bufname("%") .'"')
-command! TXTAgendaGlobalTasks call TXTAgenda(g:txt_agenda_cmd . ' -p 12 -f 12 ./* ./*/* | grep "TODO\|ACTV\|WAIT\|\[ \]"')
+
+command! TXTAgendaGlobalTasks call TXTAgendaQuicklist(g:txt_agenda_cmd . ' -p 12 -f 12 ./*.md | grep "TODO\|ACTV\|WAIT\|\[ \]"')
 
 nnoremap <Leader>A :TXTAgendaGlobal<CR>
 nnoremap <Leader>a :TXTAgendaLocal<CR>
