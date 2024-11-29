@@ -21,7 +21,7 @@ command! TXTAgendaLocal call TXTAgendaQuickfix(g:txt_agenda_cmd . ' "' . bufname
 command! TXTAgendaGlobal call TXTAgendaQuickfix(g:txt_agenda_cmd . ' ./* ./*/* 2>/dev/null')
 
 command! TXTAgendaLocalTasks call TXTAgendaQuickfix(g:txt_agenda_cmd . ' -p 12 -f 12 "' . bufname("%") . '" | grep "TODO\|ACTV\|WAIT\|\[ \]" 2>/dev/null')
-command! TXTAgendaGlobalTasks call TXTAgendaQuickfix(g:txt_agenda_cmd . ' -p 12 -f 12 ./*.md | grep "TODO\|ACTV\|WAIT\|\[ \]" 2>/dev/null')
+command! TXTAgendaGlobalTasks call TXTAgendaQuickfix(g:txt_agenda_cmd . ' -p 12 -f 12 ./* ./*/* 2>/dev/null | grep "TODO\|ACTV\|WAIT\|\[ \]" 2>/dev/null')
 
 " Don't allow trying to build a new agenda while in a quickfix buffer since
 " bufname("%") won't be what you want in that case.
