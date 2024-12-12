@@ -5,6 +5,7 @@ endif
 let s:padname = '_center_pane_pad_'
 
 function! s:set_defaults()
+	let s:cursorline_default = &cursorline
 	let s:foldcolumn_default = &foldcolumn
 	let s:laststatus_default = &laststatus
 	let s:number_default = &number
@@ -57,7 +58,7 @@ function! s:create_center_pane_pads()
 	set guioptions-=rL
 	set guicursor+=a:blinkon0
 	let l:width = &columns / 3
-	let l:window_params = l:width . 'vsplit +setlocal\ buftype=nofile\ bufhidden=wipe\ nomodifiable\ noswapfile\ nobuflisted\ nonumber ' . s:padname
+	let l:window_params = l:width . 'vsplit +setlocal\ buftype=nofile\ bufhidden=wipe\ nocursorline\ nomodifiable\ noswapfile\ nobuflisted\ nonumber ' . s:padname
 	execute 'keepalt topleft' . l:window_params | wincmd p
 	execute 'keepalt botright' . l:window_params | wincmd p
 	augroup CenterPane
