@@ -1,4 +1,6 @@
 alias cp="cp -ip"
+alias e='emacsclient --no-window-system --create-frame --alternate-editor=""'
+alias em='emacsclient -c --no-wait --alternate-editor=""'
 alias gia="git add"
 alias gil="git log --pretty=oneline"
 alias gim="git commit -m"
