@@ -1,4 +1,6 @@
-*/doc/tags
-telescope.nvim
-plenary.nvim
-nvim-treesitter
+*
+!commentary/
+!minimd
+!rsi/
+!speeddating/
+!wc-goal/
